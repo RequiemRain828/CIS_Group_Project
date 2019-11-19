@@ -14,7 +14,7 @@ public class Employee {
     private String username;
     private String password;
     private String employeeName;
-    private static int nextID = 0;
+    public static int nextID = 0;
     
     public Employee (String username, String password, String employeeName)
     {
