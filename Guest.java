@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Group_Project;
+package CIS_Group_Project;
 
 /**
  *

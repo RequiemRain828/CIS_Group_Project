@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Group_Project;
+package CIS_Group_Project;
 
 /**
  *
  * @author Ivan
  */
-public class ValueGuest {
+public class ValueGuest extends Guest{
     private String savingsNumber;
     private int numberOfBookings;
     private double amountSpentWithHotel;

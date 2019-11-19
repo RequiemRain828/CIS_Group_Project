@@ -1,4 +1,4 @@
-package Group_Project;
+package CIS_Group_Project;
 
 
 public class Booking {
