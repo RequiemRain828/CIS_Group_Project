@@ -1,5 +1,5 @@
 
-package Group_Project;
+package CIS_Group_Project;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ public class HotelMadison
      
             case 2:
                 checkEmployee();
-                EmployeeMenu();
+                employeeMenu();
                 break;
                 
 
@@ -116,7 +116,7 @@ public class HotelMadison
                 
     }
     
-    public static void EmployeeMenu()
+    public static void employeeMenu()
     {   Scanner input = new Scanner(System.in);
         int menuChoice;
         
@@ -148,6 +148,23 @@ public class HotelMadison
             default:
                 System.out.print("Invalid option, Please enter an option between 1-6");
         }
+    }
+    
+    public static void guestMenu()
+    {
+        Scanner input = new Scanner(System.in);
+        int menuChoice;
+        
+        do
+        {
+        System.out.println("------------------");
+        System.out.println("Option 1");
+        System.out.println("Option 2");
+        System.out.println("Option 3");
+        System.out.println("Please enter an option");
+        menuChoice = input.nextInt();
+        System.out.println("---------------------");
+        } while (menuChoice != 3);
     }
 }
    
