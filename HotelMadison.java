@@ -1,5 +1,5 @@
 
-package CIS_Group_Project;
+package GitHub.CIS_Group_Project;
 
 import java.util.Scanner;
 import java.util.ArrayList;
