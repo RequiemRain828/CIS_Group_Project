@@ -21,7 +21,7 @@ public class Room {
     private double roomCostPerNight;
     private static int nextID = 0;
     
-    public Room (int bed, int kitch, int coffee, int accessibility, int roomNumber)
+    public Room (int bed, int kitch, int coffee, int accessibility, int roomNumber, double roomPrice)
     {
         this.roomID = nextID++;
         this.bedOption = bed;
@@ -29,6 +29,7 @@ public class Room {
         this.coffeeOption = coffee;
         this.accessibleOption = accessibility;
         this.roomNumber = roomNumber;
+        this.roomCostPerNight = roomPrice;
     }
     
     public boolean bookedRoom()
@@ -40,6 +41,8 @@ public class Room {
         {
             this.roomBooked = true;
             roomTest = true;
+            this.roomBookQuantity++;
+            
         }
         
         return roomTest;
@@ -66,9 +69,16 @@ public class Room {
         return this.roomNumber;
     }
     
+    public double getRoomPrice()
+    {
+        return this.roomCostPerNight;
+    }
+    
     public String roomAnalytics()
     {
-        return "";
+        String newString = "";
+        newString = " Number of Times Booked: " + this.getBookedRoomQuantity() + ", Is Room booked? " + this.roomBooked;
+        return newString;
     }
     
     public String roomDescription()
@@ -124,12 +134,19 @@ public class Room {
         
         String test = "Room #" + this.roomNumber + " comes fully furnished with " 
                 + bed + ", a " + kitchen + ", a " + coffee 
-                + ", and is classifed as a " + access + ".";
+                + ", and is classifed as a " + access + "." + "Room Cost Per Night: " 
+                + this.roomCostPerNight;
+        
         return test;
     }
     
     public boolean setRoomNumber(int roomNumber)
     {
         return false;
+    }
+    
+    public void setRoomPrice(double roomPrice)
+    {
+        this.roomCostPerNight = roomPrice; 
     }
 }
