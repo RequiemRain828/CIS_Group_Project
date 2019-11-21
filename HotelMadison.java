@@ -36,7 +36,7 @@ public class HotelMadison
             
             case 1:
                 checkGuest();
-                
+                guestMenu();
                 break;
                 
      
@@ -56,7 +56,7 @@ public class HotelMadison
         int x = 0;
         do
         {        
-            System.out.print("Please enter your name: ");
+            System.out.print("Please enter your username: ");
             String usernameTest = keyboardInput.nextLine();
                     
             System.out.print("Please enter your password: ");
@@ -89,7 +89,7 @@ public class HotelMadison
         int x = 0;
         do
         {        
-            System.out.print("Please enter your name: ");
+            System.out.print("Please enter your username: ");
             String usernameTest = keyboardInput.nextLine();
                     
             System.out.print("Please enter your password: ");
@@ -123,12 +123,13 @@ public class HotelMadison
         do
         {
         System.out.println("------------------");
-        System.out.println("Option 1");
-        System.out.println("Option 2");
-        System.out.println("Option 3");
-        System.out.println("Option 4");
-        System.out.println("Option 5");
-        System.out.println("Please enter an option");
+        System.out.println("1. Run a Booking Report");
+        System.out.println("2. Check a Guest out");
+        System.out.println("3. Create a Guest Account");
+        System.out.println("4. Create or Edit Employee");
+        System.out.println("5. Create, Edit, or Make a Room");
+        System.out.println("6. Exit Program");
+        System.out.print("Please enter an option: ");
         menuChoice = input.nextInt();
         System.out.println("---------------------");
         } while (menuChoice != 6);
@@ -152,19 +153,22 @@ public class HotelMadison
     
     public static void guestMenu()
     {
-        Scanner input = new Scanner(System.in);
-        int menuChoice;
+       
+    }
+    
+    public static void bookingReport()
+    {
         
-        do
-        {
-        System.out.println("------------------");
-        System.out.println("Option 1");
-        System.out.println("Option 2");
-        System.out.println("Option 3");
-        System.out.println("Please enter an option");
-        menuChoice = input.nextInt();
-        System.out.println("---------------------");
-        } while (menuChoice != 3);
+    }
+    
+    public static void guestOut()
+    {
+        
+    }
+    
+    public static void createGuest()
+    {
+        
     }
 }
    
