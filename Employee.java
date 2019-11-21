@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CIS_Group_Project;
+package GitHub.CIS_Group_Project;
+
+import GitHub.CIS_Group_Project.test;
+import java.util.*;
 
 /**
  *
@@ -15,9 +18,12 @@ public class Employee {
     private String password;
     private String employeeName;
     public static int nextID = 0;
+    public static ArrayList<Employee> employeeArray = new ArrayList<Employee>();
+
     
     public Employee (String username, String password, String employeeName)
     {
+//        this.employeeArray.add(new Employee(username, password, employeeName));
         this.employeeID = nextID++;
         this.username = username;
         this.password = password;
@@ -50,7 +56,13 @@ public class Employee {
     }
     
     public int setPassword(String oldP, String newP)
-    {
-        return 0;
+    { int x=0;
+        if (this.password.equals(oldP))
+        {
+            this.password=newP;
+            x=1;
+        }
+       
+        return x;
     }
 }
