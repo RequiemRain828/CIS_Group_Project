@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CIS_Group_Project;
+package GitHub.CIS_Group_Project;
 
 /**
  *
@@ -32,5 +32,30 @@ public class Guest {
                     credentials = true;
                 }
         return credentials;
+    }
+     public String getGuestName()
+    {
+        return this.guestName;
+    }
+    
+    public String getUsername()
+    {
+        return this.username;
+    }
+    
+    public void setGuestName(String guestName)
+    {
+        this.guestName = guestName;
+    }
+    
+     public int setPassword(String oldP, String newP)
+    { int x=0;
+        if (this.password.equals(oldP))
+        {
+            this.password=newP;
+            x=1;
+        }
+       
+        return x;
     }
 }
