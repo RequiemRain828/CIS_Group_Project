@@ -36,16 +36,11 @@ public class HotelMadison
             
             case 1:
                 checkGuest();
-                guestMenu();
                 break;
-                
-     
-            case 2:
+                     
+            case 2:               
                 checkEmployee();
-                employeeMenu();
                 break;
-                
-
         }
         
     }
@@ -126,9 +121,12 @@ public class HotelMadison
         System.out.println("1. Run a Booking Report");
         System.out.println("2. Check a Guest out");
         System.out.println("3. Create a Guest Account");
-        System.out.println("4. Create or Edit Employee");
-        System.out.println("5. Create, Edit, or Make a Room");
-        System.out.println("6. Exit Program");
+        System.out.println("4. Edit  Guest Account");
+        System.out.println("5. Create an Employee Account");
+        System.out.println("6. Edit an Employee Account");
+        System.out.println("7. Create Guest Rooms");
+        System.out.println("8. Edit or make a Room Inactive");
+        System.out.println("9. Exit Program");
         System.out.print("Please enter an option: ");
         menuChoice = input.nextInt();
         System.out.println("---------------------");
@@ -153,7 +151,8 @@ public class HotelMadison
     
     public static void guestMenu()
     {
-       
+        System.out.print("Guest Menu");
+        
     }
     
     public static void bookingReport()
