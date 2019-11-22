@@ -1,15 +1,15 @@
-package Group_Project;
+package CIS_Group_Project;
 
-import GroupProject.Room;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.*;
 
 public class HotelMadison
 {
-    private static ArrayList<Employee> employee = new ArrayList();
-    private static ArrayList<Guest> guest = new ArrayList();
-    private static ArrayList<Room> room = new ArrayList();
+    public static ArrayList<Employee> employee = new ArrayList();
+    public static ArrayList<Guest> guest = new ArrayList();
+    public static ArrayList<Room> room = new ArrayList<Room>();
     
     public static void main(String[] args) 
     {
@@ -26,11 +26,11 @@ public class HotelMadison
         Guest g2 = new Guest("mthorton" , "alphaprotocol", "Mike Thorton");
         guest.add(g2);
         
-        Room r1 = new Room(1, 1, 1, 1, 1);
-        room.add(r1);
+        //Room r1 = new Room(1, 1, 1, 1, 1);
+        //room.add(r1);
         
-        Room r2 = new Room(1, 1, 1 ,1 , 2);
-        room.add(r2);
+        //Room r2 = new Room(1, 1, 1 ,1 , 2);
+        //room.add(r2);
         
         Scanner keyboardInput = new Scanner(System.in);
         
@@ -166,8 +166,10 @@ public class HotelMadison
                 editemployee();
                 break;
             case 7:
+                room = makeRooms(room);
                 break;
             case 8:
+                editRooms(room);
                 break;
             case 9:
                 System.out.print("Exiting Program...");
@@ -720,7 +722,7 @@ do {
         System.out.println("Please enter room number to edit: ");
         String roomNumberToEdit = keyboardIn.nextLine();
         
-        Room roomToEdit = roomList.get(Integer.parseInt(roomNumberToEdit));
+        Room roomToEdit = (Room) room.get(Integer.parseInt(roomNumberToEdit));
         
         System.out.println(roomToEdit.roomDescription());
         
@@ -801,7 +803,7 @@ do {
           x = keyboardIn.nextLine();
           
         } while (x.equals("1"));
-          return roomList;   
+          return room;   
         }
                         
 }
