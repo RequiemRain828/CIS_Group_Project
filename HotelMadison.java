@@ -10,6 +10,8 @@ public class HotelMadison
     public static ArrayList<Employee> employee = new ArrayList();
     public static ArrayList<Guest> guest = new ArrayList();
     public static ArrayList<Room> room = new ArrayList<Room>();
+    public static ArrayList<Booking> booking = new ArrayList();
+    
     
     public static void main(String[] args) 
     {
@@ -26,11 +28,11 @@ public class HotelMadison
         Guest g2 = new Guest("mthorton" , "alphaprotocol", "Mike Thorton");
         guest.add(g2);
         
-        //Room r1 = new Room(1, 1, 1, 1, 1);
-        //room.add(r1);
+        Room r1 = new Room(1, 1, 1, 1, 1);
+        room.add(r1);
         
-        //Room r2 = new Room(1, 1, 1 ,1 , 2);
-        //room.add(r2);
+        Room r2 = new Room(1, 1, 1 ,1 , 2);
+        room.add(r2);
         
         Scanner keyboardInput = new Scanner(System.in);
         
@@ -45,7 +47,8 @@ public class HotelMadison
         {
             
             case 1:
-                checkGuest();
+                Guest theGuest = checkGuest();
+                guestMenu(theGuest);
                 break;
                      
             case 2:               
@@ -55,8 +58,9 @@ public class HotelMadison
         
     }
     
-    public static void checkGuest()
+    public static Guest checkGuest()
     {
+        Guest theGuest = null;
         Scanner keyboardInput = new Scanner (System.in);
         int x = 0;
         do
@@ -72,7 +76,7 @@ public class HotelMadison
                 if (guest.get(i).checkCredentials(usernameTest, passwordTest) == true)
                 {
                     System.out.println("\nWelcome, " + usernameTest + "!");
-                  
+                    theGuest = guest.get(i);
                     x = 1;
                     break;
                 }
@@ -86,6 +90,8 @@ public class HotelMadison
         }
                 
         while(x==0);
+        
+        return theGuest; 
                 
     }
    
@@ -180,10 +186,281 @@ public class HotelMadison
         } while (menuChoice != 9);
     }
     
-    public static void guestMenu()
+    public static void guestMenu(Guest theGuest)
     {
-        System.out.print("Guest Menu");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Be our guest!");
+        String menuChoice = ""; 
+        boolean menuChoiceCheck = true; 
         
+        do {
+            System.out.println("\n*** Guest Main Menu ***"
+                + "\n-------------------------");
+            System.out.println("1. Book a Room");
+            System.out.println("2. See Booking Report");
+            System.out.println("3. Edit Personal Information");
+            System.out.println("4. Exit Program");
+            System.out.print("Enter Choice: ");
+            menuChoice = input.next();
+            
+            do {
+                if (menuChoice.equals("1") || menuChoice.equals("2")
+                        || menuChoice.equals("3") || menuChoice.equals("4")){
+                    menuChoiceCheck = false;
+                } else {
+                    System.out.print("Invalid input. Please enter 1, 2, 3 or 4: ");
+                    menuChoice = input.next();
+                }
+            } while (menuChoiceCheck);
+            
+            handleGuestChoice(menuChoice, theGuest);
+            
+        } while (!menuChoice.equals("4"));
+        System.out.println("\nProgram Exiting. . . ");
+        
+    }
+    
+    public static void handleGuestChoice(String menuChoice, Guest guest){
+        switch (menuChoice) {
+            case "1": bookARoom(guest); break;
+            case "2": guestReport(guest); break;
+            case "3": editGuestInfo(guest); break;
+            case "4": break;
+            default: System.out.println("\nInvalid Menu Choice. Try again!");
+        }
+    }
+    
+    public static void bookARoom(Guest guest){
+        
+        Scanner input = new Scanner(System.in);
+        String bedOption = ""; 
+        String kitchenOption = "";
+        String coffeeOption = "";
+        String accessibleOption = "";
+
+        System.out.println("\n*** Guest Book a Room ***"
+                + "\n-------------------------");
+        boolean bedOptionCheck = false; 
+        do {
+            System.out.println("Select a Bed Option:");
+            System.out.println("1. 1 Queen Bed");
+            System.out.println("2. 2 Queen Beds");
+            System.out.println("3. 1 King Bed");
+            System.out.print("Enter Choice: ");
+            bedOption = input.next();
+            
+            if (bedOption.equals("1")){
+                bedOptionCheck = true;
+            } else if(bedOption.equals("2")) {
+                bedOptionCheck = true;
+            } else if(bedOption.equals("3")) {
+                bedOptionCheck = true;
+            } else {
+                System.out.println("\nInvalid input. Please enter 1, 2, or 3.");
+            }
+        } while (!bedOptionCheck);
+        
+        boolean kitchenOptionCheck = false; 
+        do {
+            System.out.println("\nSelect a Kitchen Option:");
+            System.out.println("1. Microwave");
+            System.out.println("2. Fridge + Microwave");
+            System.out.print("Enter Choice: ");
+            kitchenOption = input.next();
+            
+            if (kitchenOption.equals("1")){
+                kitchenOptionCheck = true;
+            } else if(kitchenOption.equals("2")) {
+                kitchenOptionCheck = true;
+            } else {
+                System.out.println("\nInvalid input. Please enter 1 or 2.");
+            }
+        } while (!kitchenOptionCheck);
+        
+        boolean coffeeOptionCheck = false;
+        do {
+            System.out.println("\nSelect a Coffee Option:");
+            System.out.println("1. 1-Cup Std. Coffee Machine");
+            System.out.println("2. Keurig Hot K200 Machine");
+            System.out.print("Enter Choice: ");
+            coffeeOption = input.next();
+            
+            if (coffeeOption.equals("1")){
+                coffeeOptionCheck = true;
+            } else if(coffeeOption.equals("2")) {
+                coffeeOptionCheck = true;
+            } else {
+                System.out.println("\nInvalid input. Please enter 1 or 2.");
+            }
+        } while (!coffeeOptionCheck);
+        
+        boolean accessibleOptionCheck = false; 
+        do {
+            System.out.println("\nSelect a Accessibility Option:");
+            System.out.println("1. Standard Room");
+            System.out.println("2. Enhanced Accessibility Room");
+            System.out.print("Enter Choice: ");
+            accessibleOption = input.next();
+            
+            if (accessibleOption.equals("1")){
+                accessibleOptionCheck = true;
+            } else if(accessibleOption.equals("2")) {
+                accessibleOptionCheck = true;
+            } else {
+                System.out.println("\nInvalid input. Please enter 1 or 2.");
+            }
+        } while (!accessibleOptionCheck);
+        
+        
+        
+        int count = 0; 
+        String roomChoice = "";
+        
+        
+        ArrayList<Room> preferredRooms = new ArrayList();
+        ArrayList<Room> availableRooms = new ArrayList();
+        
+        for(int i = 0; i < room.size(); i++) {
+            if (Integer.parseInt(bedOption) == room.get(i).getBedOption()
+                    && Integer.parseInt(kitchenOption) == room.get(i).getKitchenOption()
+                    && Integer.parseInt(coffeeOption) == room.get(i).getCoffeeOption()
+                    && Integer.parseInt(accessibleOption) == room.get(i).getAccessibleOption()
+                    && !(room.get(i).bookedRoom())){
+                if(count == 0){
+                    System.out.println("\n(The following rooms are available that meet your preferences)");
+                }
+                preferredRooms.add(room.get(i));
+                count++;
+                System.out.println(count + ". Room " + room.get(i).getRoomNumber());
+            }
+        }
+        
+        if (count > 0){
+            System.out.print("\nEnter the value next to the room you'd like to book: ");
+            roomChoice = input.next();
+            
+            
+            Room chosenRoom = preferredRooms.get(Integer.parseInt(roomChoice) - 1);
+            
+            boolean check = false;
+            System.out.println("You have chosen Room #" + chosenRoom.getRoomNumber() + ". "
+                    + chosenRoom.roomDescription());
+            System.out.print("\nIs this the room you'd like to book? "
+                    + "(Yes (y) or No (n)): ");
+            String bookRoom = "";
+            
+            do {
+                bookRoom = input.next();
+                if (bookRoom.equals("y")){
+                    for(int i = 0; i < room.size(); i++){
+                        if (chosenRoom.getRoomID() == room.get(i).getRoomID()){
+                            room.get(i).bookRoom();
+                        }
+                    }
+                    chosenRoom.bookRoom();
+                    Booking newBooking = new Booking(guest, chosenRoom, 2019, 1, 1);
+                    booking.add(newBooking);
+                    System.out.println("Thank you for booking Room #" + newBooking.getBookedRoom().getRoomNumber());
+                    check = true;
+                    
+                } else if(bookRoom.equals("n")){ 
+                    System.out.println("Please go back to the main menu and try with new preferences.");
+                    break;
+                } else {
+                    System.out.println("Invalid input. Please enter Yes (y) or No (n): ");
+                }
+            } while (!check);
+            
+  
+        } else {
+            System.out.println("\nThe following rooms are currently available:");
+            System.out.println("(There are no rooms available with all of your preferences.)\n");
+            
+            count = 0;
+            for (int i = 0; i < room.size(); i++) {
+                if(!room.get(i).bookedRoom()){
+                    availableRooms.add(room.get(i));
+                    count++;
+                    System.out.println(count + ". " + room.get(i).roomDescription());
+                }
+            }
+            System.out.print("\nEnter the value next to the room you'd like to book: ");
+            roomChoice = input.next();
+            System.out.println("You have chosen " + availableRooms.get(Integer.parseInt(roomChoice) - 1).roomDescription());
+            System.out.print("\nIs this the room you'd like to book? "
+                + "(Yes (y) or No (n): ");
+            
+            Room chosenRoom = availableRooms.get(Integer.parseInt(roomChoice) - 1);
+            boolean check = false;
+            String bookRoom = "";
+            do {
+                bookRoom = input.next();
+                if (bookRoom.equals("y")){
+                    for(int i = 0; i < room.size(); i++){
+                        if (chosenRoom.getRoomID() == room.get(i).getRoomID()){
+                            room.get(i).bookRoom();
+                        }
+                    }
+                    chosenRoom.bookRoom();
+                    Booking newBooking = new Booking(guest, chosenRoom, 2019, 1, 1);
+                    booking.add(newBooking);
+                    System.out.println("Thank you for booking Room #" + newBooking.getBookedRoom().getRoomNumber());
+                    check = true;
+                } else if(bookRoom.equals("n")){ 
+                    System.out.println("Please go back to the main menu and try with new preferences.");
+                    break;
+                } else {
+                    System.out.println("Invalid input. Please enter Yes (y) or No (n): ");
+                }
+            } while (!check);
+            
+        }
+               
+        
+    }
+    
+    public static void guestReport(Guest guest){
+        int count = 0; 
+        System.out.println("\n*** Guest Report ***"
+                + "\n-------------------------");
+        Guest temp = null; 
+        for (int i = 0; i < booking.size(); i++){
+            if (booking.get(i).getBookingGuest().getGuestName().equals(guest.getGuestName())){
+                count++;
+                System.out.println(count + ". "+ booking.get(i).toString());
+            } 
+        }
+        
+        if (count == 0){
+            System.out.println("You have not booked a room yet.");
+        }
+    }
+    
+    public static void editGuestInfo(Guest guest){
+        Scanner input = new Scanner(System.in);
+        System.out.println("\n*** Edit Guest Info ***"
+                + "\n-------------------------");
+        System.out.print("You cannot edit your username or password. "
+                + "\nWould you like to edit the name on your account? "
+                + "(Yes (y) or No (n)): ");
+        boolean correctResponse = false;
+        String editNameInput = "";
+        String newName = "";
+        
+        do {
+            editNameInput = input.nextLine().toLowerCase();
+            if(editNameInput.equals("y")){
+                System.out.print("\nEnter your new name: ");
+                newName = input.nextLine();
+                guest.setGuestName(newName);
+                correctResponse = true;
+            } else if (editNameInput.equals("n")){
+                correctResponse = true;
+                break; 
+            } else {
+                System.out.println("Please enter \"y\" for Yes or \"n\" for No. ");
+            }
+        } while (!correctResponse);
     }
     
     public static void checkoutGuest()

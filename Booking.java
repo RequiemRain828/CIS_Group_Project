@@ -19,7 +19,22 @@ public class Booking {
         this.checkOutDay = checkOut; 
     }
     
+    public Guest getBookingGuest(){
+        return this.bookingGuest;
+    }
+    
+    public Room getBookedRoom(){
+        return this.bookedRoom;
+    }
+    
     public void endBooking(){
-        
+        this.bookedRoom.freeThisRoom();
+    }
+    
+    public String toString(){
+        String result = "";
+        result += this.bookingGuest.getGuestName() + " booked room " + this.bookedRoom.getRoomNumber() 
+                + " in " + this.bookingYear ;
+        return result; 
     }
 }

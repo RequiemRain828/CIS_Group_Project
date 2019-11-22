@@ -28,16 +28,27 @@ public class Room {
     public boolean bookedRoom()
     {
         boolean roomTest;
-        if (this.roomBooked == true)
+        if (this.roomBooked == false)
             roomTest = false;
         else
         {
-            this.roomBooked = true;
             roomTest = true;
         }
         
         return roomTest;
         
+    }
+    
+    public void bookRoom()
+    {
+        if (this.roomBooked == false)
+            roomBooked = true;
+    }
+    
+    public void unbookRoom()
+    {
+        if (this.roomBooked == true)
+            roomBooked = false;
     }
     
     public void freeThisRoom()
@@ -58,6 +69,22 @@ public class Room {
     public int getRoomNumber()
     {
         return this.roomNumber;
+    }
+    
+    public int getBedOption() {
+        return this.bedOption;
+    }
+    
+    public int getKitchenOption() {
+        return this.kitchenOption;
+    }
+    
+    public int getCoffeeOption() {
+        return this.coffeeOption;
+    }
+    
+    public int getAccessibleOption() {
+        return this.accessibleOption;
     }
     
     public String roomAnalytics()
