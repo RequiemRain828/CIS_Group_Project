@@ -1,5 +1,5 @@
 
-package GroupProject;
+package CIS_Group_Project;
 
 public class Room {
     
