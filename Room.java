@@ -1,27 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package CIS_Group_Project;
 
-/**
- *
- * @author Ivan
- */
+package GroupProject;
+
 public class Room {
+    
     private int roomID;
-    private int bedOption;
-    private int kitchenOption;
-    private int coffeeOption;
-    private int accessibleOption;
+    public int bedOption;
+    public int kitchenOption;
+    public int coffeeOption;
+    public int accessibleOption;
     private int roomNumber;
     private int roomBookQuantity;
     private boolean roomBooked;
     private double roomCostPerNight;
     private static int nextID = 0;
+    public boolean activeStatus;
     
-    public Room (int bed, int kitch, int coffee, int accessibility, int roomNumber, double roomPrice)
+    public Room (int bed, int kitch, int coffee, int accessibility, int roomNumber)
     {
         this.roomID = nextID++;
         this.bedOption = bed;
@@ -29,7 +23,6 @@ public class Room {
         this.coffeeOption = coffee;
         this.accessibleOption = accessibility;
         this.roomNumber = roomNumber;
-        this.roomCostPerNight = roomPrice;
     }
     
     public boolean bookedRoom()
@@ -41,8 +34,6 @@ public class Room {
         {
             this.roomBooked = true;
             roomTest = true;
-            this.roomBookQuantity++;
-            
         }
         
         return roomTest;
@@ -69,16 +60,9 @@ public class Room {
         return this.roomNumber;
     }
     
-    public double getRoomPrice()
-    {
-        return this.roomCostPerNight;
-    }
-    
     public String roomAnalytics()
     {
-        String newString = "";
-        newString = " Number of Times Booked: " + this.getBookedRoomQuantity() + ", Is Room booked? " + this.roomBooked;
-        return newString;
+        return "";
     }
     
     public String roomDescription()
@@ -134,9 +118,7 @@ public class Room {
         
         String test = "Room #" + this.roomNumber + " comes fully furnished with " 
                 + bed + ", a " + kitchen + ", a " + coffee 
-                + ", and is classifed as a " + access + "." + "Room Cost Per Night: " 
-                + this.roomCostPerNight;
-        
+                + ", and is classifed as a " + access + ".";
         return test;
     }
     
@@ -145,8 +127,9 @@ public class Room {
         return false;
     }
     
-    public void setRoomPrice(double roomPrice)
-    {
-        this.roomCostPerNight = roomPrice; 
-    }
+    
+    
+    
+    
+    
 }
