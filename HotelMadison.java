@@ -197,11 +197,11 @@ public class HotelMadison
         System.out.println("Room #" + rooms);
        
                      
-                System.out.println("Plese select from one of the coice provided:\n "
+                System.out.println("Plese select from one of the choice provided:\n "
                     + "1.Continue Entering \n "
                     + "2.Done entering \n"
                     + "--------------------------------");
-             System.out.print("Enter choce here:");
+             System.out.print("Enter choice here:");
                      String choice=keyboardInput.nextLine();
                          switch (choice) {
                                  case "1":
@@ -218,28 +218,79 @@ public class HotelMadison
     
     public static void bookingReport()
     {
-        boolean validEntry;
-        do {
-    try {
-      System.out.println("1. Display All Rooms: ");
-      System.out.println("2. Display one Room: ");
-      System.out.println("3. Exit out of this menu:");
-      Scanner scan = new Scanner(System.in);
-      int numArabic;
-      numArabic = scan.nextInt();
-      
-      
-      handleReportMenu(numArabic);    
-      
-      
-      validEntry = true;
-    }
-    catch (InputMismatchException e) {
-      validEntry = false;
-      System.out.println("Entered value is not an integer!");
-    }
-    }
-    while(!validEntry);
+          {       
+         int x=1;
+            int y=1;
+            int f=0;   
+        String choice ;
+        String valued;
+
+        Scanner in1= new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
+        Scanner in3= new Scanner(System.in);
+
+        do{
+            do{
+              System.out.println("1. Display All Rooms: ");
+              System.out.println("2. Select one Room to display: ");
+              valued=in3.nextLine();
+              switch (valued) {
+            case "1":
+                y++;
+                
+                break;
+            case "2":
+                y++;
+                
+                break;
+            default:
+                System.out.println("Wrong Option! Please try Again! ");
+                break;}
+            } while(y==1);
+                    if(valued.equals("1"))
+                    {
+                        for (int i = 0; i < room.size(); i ++){
+                System.out.println(room.get(i).roomDescription() + ", Room Price $:" + room.get(i).roomAnalytics()); 
+            }
+
+                    }
+                   else if (valued.equals("2"))
+                   {
+                    System.out.println("Please enter a room # to select");
+                    int roomChoice = in1.nextInt();
+                    for (int i = 0; i < room.size(); i++){
+                    if (room.get(i).getRoomNumber() == (roomChoice))
+                    {
+                    System.out.print(room.get(i).roomDescription());
+                    }
+                }
+            }
+                         
+                  f=0;    
+            do{         
+                System.out.println("Plese select from one of the choices provided:\n "
+                    + "1.Continue Selecting Rooms to display \n "
+                    + "2.Exit Report Menu \n"
+                    + "--------------------------------");
+             System.out.print("Enter choice here:");
+                     choice=in.nextLine();
+                         switch (choice) {
+                                 case "1":
+                                     f++;
+                                     x=0;
+                                     break;
+                                 case "2":
+                                     f++;
+                                     x++;
+                                     break;
+                                 default:
+                                     System.out.println("Wrong Choice! Plese try again! ");
+                                     break;
+                             }
+            }while(f==0);
+                   
+        }while(x==0);
+        }
     }
     
     public static void handleReportMenu(int menuChoice)
