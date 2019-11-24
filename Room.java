@@ -15,7 +15,7 @@ public class Room {
     private static int nextID = 0;
     public boolean activeStatus;
     
-    public Room (int bed, int kitch, int coffee, int accessibility, int roomNumber)
+    public Room (int bed, int kitch, int coffee, int accessibility, int roomNumber, double roomPrice)
     {
         this.roomID = nextID++;
         this.bedOption = bed;
@@ -23,6 +23,7 @@ public class Room {
         this.coffeeOption = coffee;
         this.accessibleOption = accessibility;
         this.roomNumber = roomNumber;
+        this.roomCostPerNight = roomPrice;
     }
     
     public boolean bookedRoom()
