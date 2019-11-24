@@ -28,16 +28,28 @@ public class Room {
     public boolean bookedRoom()
     {
         boolean roomTest;
-        if (this.roomBooked == true)
+        if (this.roomBooked == false)
             roomTest = false;
         else
         {
-            this.roomBooked = true;
             roomTest = true;
+            this.roomBookQuantity++;
         }
         
         return roomTest;
         
+    }
+    
+    public void bookRoom()
+    {
+        if (this.roomBooked == false)
+            roomBooked = true;
+    }
+    
+    public void unbookRoom()
+    {
+        if (this.roomBooked == true)
+            roomBooked = false;
     }
     
     public void freeThisRoom()
@@ -60,13 +72,48 @@ public class Room {
         return this.roomNumber;
     }
     
+    public int getBedOption() {
+        return this.bedOption;
+    }
+    
+    public int getKitchenOption() {
+        return this.kitchenOption;
+    }
+    
+    public int getCoffeeOption() {
+        return this.coffeeOption;
+    }
+    
+    public int getAccessibleOption() {
+        return this.accessibleOption;
+    }
+    
+    public String displayRoomStatus()
+    {
+        String booked = "";
+        if(this.roomBooked)
+        {
+           booked = "Booked";
+           
+        }
+        else
+        {
+            booked = "Available";
+        }
+        return booked;
+    }
+    
     public String roomAnalytics()
     {
-        return "";
+        String result = "";
+        result = (" Number of Times Booked: " + this.getBookedRoomQuantity() 
+                + ", Room Booked Status: " + this.displayRoomStatus());
+        return result;
     }
     
     public String roomDescription()
     {
+        String desc = "";
         String bed = "";
         String coffee = "";
       
@@ -116,10 +163,12 @@ public class Room {
                 break;
         }
         
-        String test = "Room #" + this.roomNumber + " comes fully furnished with " 
+        desc = ("Room Number: " + this.getRoomNumber() + " comes fully furnished with " 
                 + bed + ", a " + kitchen + ", a " + coffee 
-                + ", and is classifed as a " + access + ".";
-        return test;
+                + ", and is classifed as a " + access
+                + ", Room booked status: " + this.displayRoomStatus()
+                + ", Room Price Per Night is " + this.roomCostPerNight);
+        return desc;
     }
     
     public boolean setRoomNumber(int roomNumber)
