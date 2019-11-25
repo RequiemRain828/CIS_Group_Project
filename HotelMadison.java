@@ -27,11 +27,9 @@ public class HotelMadison
         
         Room r1 = new Room(1, 1, 1, 1, 1, 50.00);
         room.add(r1);
-        //r1.bookRoom();
         
         Room r2 = new Room(1, 1, 1 ,1 , 2, 100.00);
         room.add(r2);
-        //r2.bookRoom();
         
         System.out.println("*** Welcome to Hotel Madison Home Page ***");
         loginPage();
@@ -42,16 +40,17 @@ public class HotelMadison
     {
         int x = 0;
         
-        do {
-        Scanner input = new Scanner(System.in);
-        System.out.println("\n--------------------");
-        System.out.println("*** Login Screen ***");
-        System.out.println("Option 1: Press 1 if you wish to login: ");
-        System.out.println("Option 2: Press 2 to exit the system: ");
-        System.out.println("--------------------");
-        System.out.print("Enter Choice: ");
-        String choice = input.nextLine();
-        System.out.println("");
+        do 
+        {
+            Scanner input = new Scanner(System.in);
+            System.out.println("\n--------------------");
+            System.out.println("*** Login Screen ***");
+            System.out.println("Option 1: Press 1 if you wish to login: ");
+            System.out.println("Option 2: Press 2 to exit the system: ");
+            System.out.println("--------------------");
+            System.out.print("Enter Choice: ");
+            String choice = input.nextLine();
+            System.out.println("");
                 
             switch(choice)
             {
@@ -59,6 +58,7 @@ public class HotelMadison
                     loginMenu();
                     x++;
                     break;
+                    
                 case "2":
                     System.out.print("Exiting System.... \n");
                     x++;
@@ -68,7 +68,10 @@ public class HotelMadison
                     System.out.print("Invalid!! Please Try Again! \n");
                     break;
             }
-        }while(x == 0);
+            
+        }
+        
+        while(x == 0);
     }
     
     public static Guest loginMenu()
@@ -79,16 +82,17 @@ public class HotelMadison
         int x = 0;
         int y = 0;
        
-        do{
-        System.out.println("--------------------------------");    
-        System.out.print("Enter your username: ");
-        String username = keyboardInput.nextLine();
-        System.out.print("Enter your password: ");
-        String password = keyboardInput.nextLine();
-        System.out.println("--------------------------------");
-        System.out.println("");
+        do
+        {
+            System.out.println("--------------------------------");    
+            System.out.print("Enter your username: ");
+            String username = keyboardInput.nextLine();
+            System.out.print("Enter your password: ");
+            String password = keyboardInput.nextLine();
+            System.out.println("--------------------------------");
+            System.out.println("");
         
-        for(int i =0; i< employee.size(); i++)
+            for(int i = 0; i < employee.size(); i++)
             {
                 if (employee.get(i).checkCredentials(username, password))
                 {
@@ -99,8 +103,8 @@ public class HotelMadison
                     break;
                 }
             }
-        
-        for(int i =0; i< guest.size(); i++)
+      
+            for(int i =0; i< guest.size(); i++)
             {
                 if (guest.get(i).checkCredentials(username, password))
                 {
@@ -112,14 +116,16 @@ public class HotelMadison
                     break;
                 }
             }
-        if (y == 0)
-        {
-        System.out.print("Please try again");
-        System.out.println("");
-        }
         
-        } while(x == 0);
+            if (y == 0)
+            {
+                System.out.print("Please try again");
+                System.out.println("");
+            }
         
+        } 
+        
+        while(x == 0);
         return theGuest;
     }
     
@@ -174,11 +180,10 @@ public class HotelMadison
                     
             for(int i =0; i< employee.size(); i++)
             {
-                
                 if (employee.get(i).checkCredentials(usernameTest, passwordTest) == true)
                 {
                     System.out.println("\nWelcome, " + usernameTest + "!");
-                      employeeMenu();
+                    employeeMenu();
                     x = 1;
                     break;
                 }
@@ -202,42 +207,55 @@ public class HotelMadison
         
         do
         {
-        System.out.println("\n*** Employee Main Menu ***");    
-        System.out.println("--------------------");
-        System.out.println("1. Run a Booking Report");
-        System.out.println("2. Check a Guest out");
-        System.out.println("3. Create a Guest Account");
-        System.out.println("4. Edit Guest Account");
-        System.out.println("5. Create an Employee Account");
-        System.out.println("6. Edit an Employee Account");
-        System.out.println("7. Create Guest Rooms");
-        System.out.println("8. Edit a room or make it Inactive");
-        System.out.println("9. Exit back to Login Screen");
+            System.out.println("\n*** Employee Main Menu ***");    
+            System.out.println("--------------------");
+            System.out.println("1. Run a Booking Report");
+            System.out.println("2. Check a Guest out");
+            System.out.println("3. Create a Guest Account");
+            System.out.println("4. Edit Guest Account");
+            System.out.println("5. Create an Employee Account");
+            System.out.println("6. Edit an Employee Account");
+            System.out.println("7. Create Guest Rooms");
+            System.out.println("8. Edit a room or make it Inactive");
+            System.out.println("9. Exit back to Login Screen");
         
-        System.out.print("Please enter an option: ");
-        menuChoice = input.nextLine();
-        System.out.println("---------------------");
+            System.out.print("Please enter an option: ");
+            menuChoice = input.nextLine();
+            System.out.println("---------------------");
         
-        do {
+            do 
+            {
                 if (menuChoice.equals("1") || menuChoice.equals("2")
                         || menuChoice.equals("3") || menuChoice.equals("4")
                         || menuChoice.equals("5") || menuChoice.equals("6") 
                         || menuChoice.equals("7") || menuChoice.equals("8")
-                        || menuChoice.equals("9") ){
+                        || menuChoice.equals("9"))
+                {
                     menuChoiceCheck = false;
-                } else {
+                } 
+                
+                
+                else 
+                {
                     System.out.print("Invalid input. Please enter 1, 2, 3 or 4: ");
                     menuChoice = input.next();
                 }
-            } while (menuChoiceCheck);
+               
+            } 
+            
+            while (menuChoiceCheck);
         
-        handleEmployeeChoice(menuChoice);
+            handleEmployeeChoice(menuChoice);
         
-        } while (!menuChoice.equals("9"));
+        } 
+        
+        while (!menuChoice.equals("9"));
     }
+    
     public static void handleEmployeeChoice(String menuChoice)
     {
-        switch(menuChoice) {
+        switch(menuChoice) 
+        {
             case "1": bookingReport(); break;
             case "2": checkoutGuest(); break;
             case "3": newGuest(); break;
@@ -253,7 +271,7 @@ public class HotelMadison
     
     public static void bookingReport()
     {
-               
+        
         int x=1;
         int y=1;
         int f=0;   
@@ -263,147 +281,192 @@ public class HotelMadison
         Scanner in = new Scanner(System.in);
         Scanner in3= new Scanner(System.in);
 
-        do{
-            do{
-              System.out.println("\n--------------------------------");
-              System.out.println("1. Display All Rooms: ");
-              System.out.println("2. Select one Room to display: ");
-              System.out.print("Enter Choice here: ");
-              valued=in3.nextLine();
-              System.out.println("--------------------------------\n");
-              switch (valued) {
-            case "1":
-                y++;
+        do
+        {
+            do
+            {
+                System.out.println("\n--------------------------------");
+                System.out.println("1. Display All Rooms: ");
+                System.out.println("2. Select one Room to display: ");
+                System.out.print("Enter Choice here: ");
+                valued=in3.nextLine();
+                System.out.println("--------------------------------\n");
+                switch (valued) 
+                {
+                    case "1":
+                        y++;
+                        break;
+                        
+                    case "2":
+                        y++;
+                        break;
+                        
+                    default:
+                        System.out.println("Wrong Option! Please try Again! \n");
+                        break;
+                }
                 
-                break;
-            case "2":
-                y++;
-                
-                break;
-            default:
-                System.out.println("Wrong Option! Please try Again! \n");
-                break;}
-            } while(y==1);
-                    if(valued.equals("1"))
+            } 
+            while(y==1);
+
+            if(valued.equals("1"))
+            {
+                for (int i = 0; i < room.size(); i ++)
+                {
+                    System.out.print("--------------------------------\n" +
+                            room.get(i).roomDescription() + room.get(i).roomAnalytics());
+                    
+                    if (room.get(i).bookedRoom())
                     {
-                    for (int i = 0; i < room.size(); i ++)
-                        {
-                        System.out.print("--------------------------------\n" +
-                                room.get(i).roomDescription() + room.get(i).roomAnalytics());
-                        if (room.get(i).bookedRoom())
-                            {
-                            System.out.print("This room is currently booked by: " 
-                                    + booking.get(i).getBookingGuest().getGuestName()
-                            + "\n");
-                            }
-                        }
+                        System.out.print("This room is currently booked by: " 
+                                + booking.get(i).getBookingGuest().getGuestName()
+                                + "\n");
                     }
-                   else if (valued.equals("2"))
-                   {
-                    boolean entry;
-                        do {
-                            Scanner in1= new Scanner(System.in);
-                            try {   
-                            System.out.println("Please enter a room number to display");
-                            System.out.print("Enter choice here: ");
-                            int roomChoice = in1.nextInt();
-                            for (int i = 0; i < room.size(); i++)
+                }
+            }
+            
+            else if (valued.equals("2"))
+            {
+                boolean entry;
+                
+                do 
+                {
+                    Scanner in1= new Scanner(System.in);
+                    try 
+                    {   
+                        System.out.println("Please enter a room number to display");
+                        System.out.print("Enter choice here: ");
+                        int roomChoice = in1.nextInt();
+                        
+                        for (int i = 0; i < room.size(); i++)
+                        {
+                            if (room.get(i).getRoomNumber() == (roomChoice))
                             {
-                                if (room.get(i).getRoomNumber() == (roomChoice))
-                                {
                                 System.out.print(room.get(i).roomDescription() + room.get(i).roomAnalytics());
+                                
                                 if (room.get(i).bookedRoom())
-                                    {
+                                {
                                     System.out.print("This room is currently booked by: " 
                                             + booking.get(i).getBookingGuest().getGuestName()
-                                    + "\n");
-                                    }
+                                            + "\n");
                                 }
                             }
-                            entry = true;
-                            }
-                            catch (InputMismatchException e) 
-                                {                               
-                                System.out.println("Entered value is not an number! Please try again! \n");
-                                entry = false;
-                                }   
-                        }while(!entry); 
-                    }      
-                  f=0;    
-            do{         
+                        }
+                        
+                        entry = true;
+                    }
+                    
+                    catch (InputMismatchException e) 
+                    {                               
+                        System.out.println("Entered value is not an number! Please try again! \n");
+                        entry = false;
+                    }   
+                }
+                
+                while(!entry); 
+            }      
+            
+            f=0;
+            
+            do
+            {
                 System.out.print("\n--------------------------------\n"
-                    + "Please select from one of the choices provided:\n "
-                    + "1. Continue Selecting Rooms to display \n "
-                    + "2. Exit Room Report Menu \n"
-                    + "--------------------------------\n");
-             System.out.print("Enter choice here: ");
-                     choice=in.nextLine();
-                         switch (choice) {
-                                 case "1":
-                                     f++;
-                                     x=0;
-                                     break;
-                                 case "2":
-                                     f++;
-                                     x++;
-                                     break;
-                                 default:
-                                     System.out.println("Wrong Choice! Plese try again! \n");
-                                     break;
-                             }
-            }while(f==0);      
-        }while(x==0);   
+                        + "Please select from one of the choices provided:\n "
+                        + "1. Continue Selecting Rooms to display \n "
+                        + "2. Exit Room Report Menu \n"
+                        + "--------------------------------\n");
+                System.out.print("Enter choice here: ");
+                        choice=in.nextLine();
+                        
+                        switch (choice) 
+                        {
+                            case "1":
+                                f++;
+                                x=0;
+                                break;
+                                
+                            case "2":
+                                f++;
+                                x++;
+                                break;
+                                
+                            default:
+                                System.out.println("Wrong Choice! Plese try again! \n");
+                                break;        
+                        }
+                        
+            }
+            
+            while(f==0);      
+        }
+        
+        while(x==0);   
     }
     
     public static void checkoutGuest()
     {
             int f=0;
-            do{   
-            int counter = 1;
-            System.out.println("List of Guests who have booked rooms: " + 
-                    "\n--------------------------------");
-            for (int j = 0; j < booking.size(); j ++)
-            {
-                if (booking.get(j).getBookedRoom().bookedRoom())
-                {   
-                System.out.println(counter + ". " + booking.get(j).getBookingGuest().getGuestName() 
-                        + " has booked Room number#: " + booking.get(j).getBookedRoom().getRoomNumber());
-                counter ++;
+            do
+            {   
+                int counter = 1;
+                System.out.println("List of Guests who have booked rooms: " + 
+                        "\n--------------------------------");
+                for (int j = 0; j < booking.size(); j ++)
+                {
+                    if (booking.get(j).getBookedRoom().bookedRoom())
+                    {   
+                    System.out.println(counter + ". " + booking.get(j).getBookingGuest().getGuestName() 
+                            + " has booked Room number#: " + booking.get(j).getBookedRoom().getRoomNumber());
+                    counter ++;
+                    }
                 }
-            }
-            Scanner keyboardInput = new Scanner(System.in);
-            System.out.println("--------------------------------");
-            System.out.println("Please select a guest to check out");
-            System.out.print("Enter number next to guest name here: ");
-            String guest = keyboardInput.nextLine();
-            System.out.println("--------------------------------");
-        for (int i = 0; i < booking.size(); i ++)
-        {
-            if (booking.get(i).getCounter() == Integer.parseInt(guest))
-            {
-            booking.get(i).getBookedRoom().freeThisRoom();    
-            System.out.println("Guest " + booking.get(i).getBookingGuest().getGuestName() 
-                    + " in Room number#: " + booking.get(i).getBookedRoom().getRoomNumber()+ " Is Checked out");
-            }    
-        }
+                
+                Scanner keyboardInput = new Scanner(System.in);
+                System.out.println("--------------------------------");
+                System.out.println("Please select a guest to check out");
+                System.out.print("Enter number next to guest name here: ");
+                String guest = keyboardInput.nextLine();
+                System.out.println("--------------------------------");
+                
+                for (int i = 0; i < booking.size(); i ++)
+                {
+                    if (booking.get(i).getCounter() == Integer.parseInt(guest))
+                    {
+                        
+                    booking.get(i).getBookedRoom().freeThisRoom();    
+                    System.out.println("Guest " + booking.get(i).getBookingGuest().getGuestName() 
+                            + " in Room number#: " 
+                            + booking.get(i).getBookedRoom().getRoomNumber()+ " Is Checked out");
+                    }    
+                }
+                
                 System.out.println("--------------------------------\n"
-                    + "Plese select from one of the choices provided:\n"
-                    + "1.Continue checking out Guests\n"
-                    + "2.Exit out of Checkout Guest Menu\n"
-                    + "--------------------------------");
-             System.out.print("Enter choice here: ");
-                     String choice=keyboardInput.nextLine();
-                         switch (choice) {
-                                 case "1":
-                                     break;
-                                 case "2":
-                                     f++;
-                                     break;
-                                 default:
-                                     System.out.println("Wrong Choice! plese try again");
-                                     break;
-                             }
-            }while(f==0);
+                        + "Plese select from one of the choices provided:\n"
+                        + "1.Continue checking out Guests\n"
+                        + "2.Exit out of Checkout Guest Menu\n"
+                        + "--------------------------------");
+                
+                System.out.print("Enter choice here: ");
+                String choice=keyboardInput.nextLine();
+                
+                         
+                switch (choice) 
+                {
+                    case "1":
+                        break;
+                        
+                    case "2":
+                        f++;
+                        break;
+                        
+                    default:
+                        System.out.println("Wrong Choice! plese try again");
+                        break;
+                             
+                }    
+            }
+            
+            while(f==0);
     }
     
     
@@ -419,7 +482,8 @@ public class HotelMadison
         String menuChoice = ""; 
         boolean menuChoiceCheck = true; 
         
-        do {
+        do 
+        {
             System.out.println("\n*** Guest Main Menu ***"
                 + "\n-------------------------");
             System.out.println("1. Book a Room");
@@ -429,19 +493,28 @@ public class HotelMadison
             System.out.print("Enter Choice: ");
             menuChoice = input.next();
             
-            do {
+            do 
+            {
+                
                 if (menuChoice.equals("1") || menuChoice.equals("2")
-                        || menuChoice.equals("3") || menuChoice.equals("4")){
+                        || menuChoice.equals("3") || menuChoice.equals("4"))
+                {
                     menuChoiceCheck = false;
-                } else {
+                } 
+                else 
+                {
                     System.out.print("Invalid input. Please enter 1, 2, 3 or 4: ");
                     menuChoice = input.next();
                 }
-            } while (menuChoiceCheck);
+            } 
+            
+            while (menuChoiceCheck);
             
             handleGuestChoice(menuChoice, theGuest);
             
-        } while (!menuChoice.equals("4"));
+        } 
+        
+        while (!menuChoice.equals("4"));
         
     }
     
@@ -451,7 +524,8 @@ public class HotelMadison
     * @author Marin Walters
     */ 
     public static void handleGuestChoice(String menuChoice, Guest guest){
-        switch (menuChoice) {
+        switch (menuChoice) 
+        {
             case "1": bookARoom(guest); break;
             case "2": guestReport(guest); break;
             case "3": editGuestInfo(guest); break;
@@ -466,7 +540,8 @@ public class HotelMadison
                     guest can choose from all available rooms. (With error checking)
     * @author Marin Walters
     */ 
-    public static void bookARoom(Guest guest){
+    public static void bookARoom(Guest guest)
+    {
         
         Scanner input = new Scanner(System.in);
         
@@ -484,7 +559,8 @@ public class HotelMadison
         boolean bedOptionCheck = false; 
         
         // The following do-while loop takes in the users input for bedOption
-        do {
+        do 
+        {
             System.out.println("Select a Bed Option:");
             System.out.println("1. 1 Queen Bed");
             System.out.println("2. 2 Queen Beds");
@@ -492,38 +568,64 @@ public class HotelMadison
             System.out.print("Enter Choice: ");
             bedOption = input.next();
             
-            if (bedOption.equals("1")){
+            if (bedOption.equals("1"))
+            {
                 bedOptionCheck = true;
-            } else if(bedOption.equals("2")) {
+            }
+            
+            else if(bedOption.equals("2")) 
+            {
                 bedOptionCheck = true;
-            } else if(bedOption.equals("3")) {
+            } 
+            
+            else if(bedOption.equals("3")) 
+            {
                 bedOptionCheck = true;
-            } else {
+            } 
+            
+            else
+            {
                 System.out.println("\nInvalid input. Please enter 1, 2, or 3.");
             }
-        } while (!bedOptionCheck);
+            
+        } 
+        
+        while (!bedOptionCheck);
         
         // The following do-while loop takes in the users input for kitchenOption
         boolean kitchenOptionCheck = false; 
-        do {
+        do 
+        {
             System.out.println("\nSelect a Kitchen Option:");
             System.out.println("1. Microwave");
             System.out.println("2. Fridge + Microwave");
             System.out.print("Enter Choice: ");
             kitchenOption = input.next();
             
-            if (kitchenOption.equals("1")){
+            if (kitchenOption.equals("1"))
+            {
                 kitchenOptionCheck = true;
-            } else if(kitchenOption.equals("2")) {
+                
+            } 
+            
+            else if(kitchenOption.equals("2")) 
+            {
                 kitchenOptionCheck = true;
-            } else {
+            }
+            
+            else 
+            {
                 System.out.println("\nInvalid input. Please enter 1 or 2.");
             }
-        } while (!kitchenOptionCheck);
+            
+        }
+        
+        while (!kitchenOptionCheck);
         
         // The following do-while loop takes in the users input for coffeeOption
         boolean coffeeOptionCheck = false;
-        do {
+        do 
+        {
             System.out.println("\nSelect a Coffee Option:");
             System.out.println("1. 1-Cup Std. Coffee Machine");
             System.out.println("2. Keurig Hot K200 Machine");
@@ -541,21 +643,32 @@ public class HotelMadison
         
         // The following do-while loop takes in the users input for accessibleOption
         boolean accessibleOptionCheck = false; 
-        do {
+        do 
+        {
             System.out.println("\nSelect a Accessibility Option:");
             System.out.println("1. Standard Room");
             System.out.println("2. Enhanced Accessibility Room");
             System.out.print("Enter Choice: ");
             accessibleOption = input.next();
             
-            if (accessibleOption.equals("1")){
+            if (accessibleOption.equals("1"))
+            {
+                accessibleOptionCheck = true;  
+            } 
+            
+            else if(accessibleOption.equals("2")) 
+            {
                 accessibleOptionCheck = true;
-            } else if(accessibleOption.equals("2")) {
-                accessibleOptionCheck = true;
-            } else {
+            }
+            
+            else 
+            {
                 System.out.println("\nInvalid input. Please enter 1 or 2.");
             }
-        } while (!accessibleOptionCheck);
+            
+        } 
+        
+        while (!accessibleOptionCheck);
         
         //The value of "count" is used as the numberic value in a numbered list
         int count = 0; 
@@ -574,17 +687,20 @@ public class HotelMadison
             the room is added to the preferredRooms ArrayList and its' room number 
             printed to the screen.
         */
-        for(int i = 0; i < room.size(); i++) {
+        for(int i = 0; i < room.size(); i++) 
+        {
             if (Integer.parseInt(bedOption) == room.get(i).getBedOption()
                     && Integer.parseInt(kitchenOption) == room.get(i).getKitchenOption()
                     && Integer.parseInt(coffeeOption) == room.get(i).getCoffeeOption()
                     && Integer.parseInt(accessibleOption) == room.get(i).getAccessibleOption()
                     && !(room.get(i).bookedRoom())
-                    && !(room.get(i).roomStatus())
-                    ){
-                if(count == 0){
+                    && !(room.get(i).roomStatus()))
+            {
+                if(count == 0)
+                {
                     System.out.println("\n(The following rooms are available that meet your preferences)");
                 }
+                
                 preferredRooms.add(room.get(i));
                 count++;
                 System.out.println(count + ". Room # " + room.get(i).getRoomNumber());
@@ -596,11 +712,11 @@ public class HotelMadison
             (which increases the value of count by 1) then this section of code 
             executes to book the user's roomChoice
         */
-        if (count > 0){
+        if (count > 0)
+        {
             System.out.print("\nEnter the value next to the room you'd like to book: ");
             roomChoice = input.next();
-            
-            
+
             Room chosenRoom = preferredRooms.get(Integer.parseInt(roomChoice) - 1);
             
             boolean check = false;
@@ -610,44 +726,64 @@ public class HotelMadison
                     + "(Yes (y) or No (n)): ");
             String bookRoom = "";
             
-            do {
+            do 
+            {
                 bookRoom = input.next();
-                if (bookRoom.equals("y")){
-                    for(int i = 0; i < room.size(); i++){
-                        if (chosenRoom.getRoomID() == room.get(i).getRoomID()){
+                if (bookRoom.equals("y"))
+                {
+                    for(int i = 0; i < room.size(); i++)
+                    {
+                        if (chosenRoom.getRoomID() == room.get(i).getRoomID())
+                        {
                             room.get(i).bookRoom();
                         }
                     }
+                    
                     Booking newBooking = new Booking(guest, chosenRoom, 2019, 1, 1);
                     booking.add(newBooking);
                     System.out.println("Thank you for booking Room #" + newBooking.getBookedRoom().getRoomNumber());
                     check = true;
                     
-                } else if(bookRoom.equals("n")){ 
+                } 
+                
+                else if(bookRoom.equals("n"))
+                { 
                     System.out.println("Please go back to the main menu and try with new preferences.");
                     break;
-                } else {
+                } 
+                
+                else 
+                {
                     System.out.println("Invalid input. Please enter Yes (y) or No (n): ");
                 }
-            } while (!check);
+                
+            } 
+            
+            while (!check);
             
         /*
             If none of the user's preferrences are met but there are rooms available
             (which means count == 0) then this section of code executes to book 
             the user's roomChoice
         */
-        } else {
+        } 
+        
+        else 
+        {
             System.out.println("\nThe following rooms are currently available:");
             System.out.println("(There are no rooms available with all of your preferences.)\n");
             
             count = 0;
-            for (int i = 0; i < room.size(); i++) {
-                if(!room.get(i).bookedRoom()){
+            for (int i = 0; i < room.size(); i++) 
+            {
+                if(!room.get(i).bookedRoom())
+                {
                     availableRooms.add(room.get(i));
                     count++;
                     System.out.println(count + ". " + room.get(i).roomDescription());
                 }
             }
+            
             System.out.print("\nEnter the value next to the room you'd like to book: ");
             roomChoice = input.next();
             System.out.println("You have chosen " + availableRooms.get(Integer.parseInt(roomChoice) - 1).roomDescription());
@@ -657,11 +793,15 @@ public class HotelMadison
             Room chosenRoom = availableRooms.get(Integer.parseInt(roomChoice) - 1);
             boolean check = false;
             String bookRoom = "";
-            do {
+            do 
+            {
                 bookRoom = input.next();
-                if (bookRoom.equals("y")){
-                    for(int i = 0; i < room.size(); i++){
-                        if (chosenRoom.getRoomID() == room.get(i).getRoomID()){
+                if (bookRoom.equals("y"))
+                {
+                    for(int i = 0; i < room.size(); i++)
+                    {
+                        if (chosenRoom.getRoomID() == room.get(i).getRoomID())
+                        {
                             room.get(i).bookRoom();
                         }
                     }
@@ -670,17 +810,23 @@ public class HotelMadison
                     booking.add(newBooking);
                     System.out.println("Thank you for booking Room #" + newBooking.getBookedRoom().getRoomNumber());
                     check = true;
-                } else if(bookRoom.equals("n")){ 
+                } 
+                
+                else if(bookRoom.equals("n"))
+                { 
                     System.out.println("Please go back to the main menu and try with new preferences.");
                     break;
-                } else {
+                    
+                }
+                
+                else 
+                {
                     System.out.println("Invalid input. Please enter Yes (y) or No (n): ");
                 }
-            } while (!check);
+            } 
             
+            while (!check);   
         }
-               
-        
     }
     
     /* guestReport() - Prints to the screen information about the room(s) that 
@@ -689,19 +835,23 @@ public class HotelMadison
                         not necessary)
     * @author Marin Walters
     */ 
-    public static void guestReport(Guest guest){
+    public static void guestReport(Guest guest)
+    {
         int count = 0; 
         System.out.println("\n*** Guest Report ***"
                 + "\n-------------------------");
         Guest temp = null; 
-        for (int i = 0; i < booking.size(); i++){
-            if (booking.get(i).getBookingGuest().getGuestName().equals(guest.getGuestName())){
+        for (int i = 0; i < booking.size(); i++)
+        {
+            if (booking.get(i).getBookingGuest().getGuestName().equals(guest.getGuestName()))
+            {
                 count++;
                 System.out.println(count + ". "+ booking.get(i).toString());
             } 
         }
         
-        if (count == 0){
+        if (count == 0)
+        {
             System.out.println("You have not booked a room yet.");
         }
     }
@@ -709,7 +859,8 @@ public class HotelMadison
     /* editGuestInfo() - Allows the guest to edit their name. (With error checking)
     * @author Marin Walters
     */ 
-    public static void editGuestInfo(Guest guest){
+    public static void editGuestInfo(Guest guest)
+    {
         Scanner input = new Scanner(System.in);
         System.out.println("\n*** Edit Guest Info ***"
                 + "\n-------------------------");
@@ -720,20 +871,32 @@ public class HotelMadison
         String editNameInput = "";
         String newName = "";
         
-        do {
+        do 
+        {
             editNameInput = input.nextLine().toLowerCase();
-            if(editNameInput.equals("y")){
+            
+            if(editNameInput.equals("y"))
+            {
                 System.out.print("\nEnter your new name: ");
                 newName = input.nextLine();
                 guest.setGuestName(newName);
                 correctResponse = true;
-            } else if (editNameInput.equals("n")){
+            } 
+            
+            else if (editNameInput.equals("n"))
+            {
                 correctResponse = true;
                 break; 
-            } else {
+            }
+            
+            else 
+            {
                 System.out.println("Please enter \"y\" for Yes or \"n\" for No. ");
             }
-        } while (!correctResponse);
+            
+        } 
+        
+        while (!correctResponse);
     }
     
     /* newEmployee() - Creates creating a new emplyee object by prompting the user
@@ -747,13 +910,14 @@ public class HotelMadison
         String userName;
         String passWord;
         String name;
-        int  counter = employee.size();
+        int counter = employee.size();
 
         Scanner in = new Scanner(System.in);
         Scanner in1= new Scanner(System.in);
         Scanner in2= new Scanner(System.in);
 
-        do{               
+        do
+        {               
             System.out.print("Enter Username: ");
             userName=in1.nextLine();
             System.out.print("Enter Password: ");
@@ -766,28 +930,39 @@ public class HotelMadison
             counter++;
                      
                  int f=0;    
-            do{         
+            do
+            {         
                 System.out.println("Plese select from one of the choices provided:\n "
                     + "1.Continue Entering \n "
                     + "2.Done entering \n"
                     + "--------------------------------");
-             System.out.print("Enter choice here:");
+                System.out.print("Enter choice here:");
                      choice=in.nextLine();
-                         switch (choice) {
-                                 case "1":
-                                     f++;
-                                     x=0;
-                                     break;
-                                 case "2":
-                                     f++;
-                                     x++;
-                                     break;
-                                 default:
-                                     System.out.println("Wrong Choice! Please try again");
-                                     break;
-                             }
-            }while(f==0);
-        }while(x==0);
+                     
+                     switch (choice) 
+                     {
+                         case "1":
+                             f++;
+                             x=0;
+                             break;
+                             
+                         case "2":
+                             f++;
+                             x++;
+                             break;
+                         
+                         default:
+                             System.out.println("Wrong Choice! Please try again");
+                             break;
+                     }
+                    
+            }
+            
+            while(f==0);
+            
+        }
+        
+        while(x==0);
         
         }
     
@@ -810,66 +985,84 @@ public class HotelMadison
         Scanner in2 = new Scanner(System.in);
         int z=0;
         String EmployeeID;
-        do{
-            do{
-            System.out.println("Please Enter EmployeeID:");
-                                 EmployeeID=in.nextLine(); 
-
-                                  switch (EmployeeID) {
-                                         case "1":
-                                             z++;
-
-                                             break;
-                                         case "2":
-                                             z++;
-
-                                             break;
-                                         default:
-                                             System.out.println("Wrong Choice! Please try again");
-                                             break;
-                                     }
-            }while(z==0);  
+        do
+        {
+            do
+            {  
+                System.out.println("Please Enter EmployeeID:");
+                EmployeeID=in.nextLine();
+                
+                switch (EmployeeID) 
+                {
+                    case "1":
+                        z++;
+                        break;
+                                         
+                    case "2":                     
+                        z++;
+                        break;
+                        
+                    default:
+                        System.out.println("Wrong Choice! Please try again");
+                        break;
+                }
+            }
+            
+            while(z==0);  
 
             System.out.print("Enter Employee Name: ");
-                             name=in3.nextLine();
-                             employee.get(Integer.parseInt(EmployeeID)).setEmployeeName(name);
-            do{               
-                 System.out.print("Enter old Password: ");
-                 passWordold=in1.nextLine();
-                 System.out.print("Enter new Password: ");
-                 passWordnew=in2.nextLine();
+            name=in3.nextLine();
+            employee.get(Integer.parseInt(EmployeeID)).setEmployeeName(name);
+            
+            do
+            {               
+                System.out.print("Enter old Password: ");
+                passWordold=in1.nextLine();
+                System.out.print("Enter new Password: ");
+                passWordnew=in2.nextLine();
                 y=employee.get(Integer.parseInt(EmployeeID)).setPassword(passWordold, passWordnew);
-                 if (y==0)
-                 {
-                     System.out.println("Wrong Password! Please try again");
-                 }
-
-
-
-            }while(y==0);    
-               int f=0; 
-              do{
-                 System.out.println("Please select from one of the choice provided:\n "
-                        + "1.Continue Editing \n "
-                        + "2.Done Editing \n"
-                        + "--------------------------------");
-                 System.out.print("Enter choice here:");
-                         choice=in.nextLine();
-            switch (choice) {
-                case "1":
-                    f++;
-                    x=0;
-                    break;
-                case "2":
-                    f++;
-                    x=1;
-                    break;
-                default:
+                if (y==0)
+                {
                     System.out.println("Wrong Password! Please try again");
-                    break;
+                }
+                
             }
-            }while(f==0);
-       }while(x==0);         
+            
+            while(y==0);    
+            int f=0;
+            
+              do
+              {
+                  System.out.println("Please select from one of the choice provided:\n "
+                          + "1.Continue Editing \n "
+                          + "2.Done Editing \n"
+                          + "--------------------------------");
+                  System.out.print("Enter choice here:");
+                  choice=in.nextLine();
+                 
+                  switch (choice) 
+                  {
+                      case "1":
+                          f++;
+                          x=0;
+                          break;
+                
+                      case "2":
+                          f++;
+                          x=1;
+                          break;
+                      
+                      default:
+                          System.out.println("Wrong Password! Please try again");
+                          break;
+                  }
+                  
+              }
+              while(f==0);
+              
+        }
+        
+        while(x==0);         
     }
     
     /* newGuest() - Creates a new guest object by prompting the user
@@ -879,74 +1072,109 @@ public class HotelMadison
     public static void newGuest()
     {       
         int x=1;
-            int y=1;
-            int f=0;   
-        String choice ;
+        int y=1;
+        int f=0;   
+        
+        String choice;
         String userName;
         String passWord;
         String name;
         String valued;
-        int  counter = guest.size();
+        int counter = guest.size();
 
         Scanner in = new Scanner(System.in);
         Scanner in1= new Scanner(System.in);
         Scanner in2= new Scanner(System.in);
         Scanner in3= new Scanner(System.in);
 
-        do{
-            do{
-              System.out.println("Is guest a Value guest: \n"
-                      + "1.Yes \n"
-                      + "2.No");
-              valued=in3.nextLine();
-              switch (valued) {
-            case "1": y++; break;
-            case "2": y++; break;
-            default:
-                System.out.println("Wrong Password! Please try again");
-                break;}
-            } while(y==1);
-                if(valued.equals("1"))
-                {
-                     System.out.print("Enter Username: ");
-                     userName=in1.nextLine();
-                     System.out.print("Enter Password: ");
-                     passWord=in1.nextLine();
-                     System.out.print("Enter Guest Name: ");
-                     name=in1.nextLine();
-                     Guest guestNew =new Guest(userName, passWord, name) ;
-                     guest.add(guestNew);        
-                     System.out.println("Your ID is: "+counter);
-                     counter++;
+        do
+        {
+            do
+            {
+                System.out.println("Is guest a Value guest: \n"
+                        + "1.Yes \n"
+                        + "2.No");
+                valued=in3.nextLine();
+                
+                switch (valued) 
+                { 
+                    case "1": 
+                        y++; 
+                        break;
+                        
+                    case "2": 
+                        y++; 
+                        break;
+                        
+                    default:      
+                        System.out.println("Wrong Password! Please try again");
+                        break;
                 }
-               else if (valued.equals("2"))
-               {
-                     System.out.print("Enter Username: ");
-                     userName=in1.nextLine();
-                     System.out.print("Enter Password: ");
-                     passWord=in1.nextLine();
-                     System.out.print("Enter Guest Name: ");
-                     name=in1.nextLine();
-                     Guest guestNew =new Guest(userName, passWord, name) ;
-                     guest.add(guestNew);        
-                     System.out.println("Your ID is: "+counter);
-                     counter++;
-               }                         
-              f=0;    
-            do{         
+                
+            } 
+            while(y==1);
+            if(valued.equals("1"))
+            {
+                System.out.print("Enter Username: ");
+                userName=in1.nextLine();
+                System.out.print("Enter Password: ");
+                passWord=in1.nextLine();
+                System.out.print("Enter Guest Name: ");
+                name=in1.nextLine();
+                Guest guestNew =new Guest(userName, passWord, name) ;
+                guest.add(guestNew);        
+                System.out.println("Your ID is: "+counter);
+                counter++; 
+            }
+            
+            else if (valued.equals("2"))
+            {
+                System.out.print("Enter Username: ");
+                userName=in1.nextLine();
+                System.out.print("Enter Password: ");
+                passWord=in1.nextLine();
+                System.out.print("Enter Guest Name: ");
+                name=in1.nextLine();
+                Guest guestNew =new Guest(userName, passWord, name) ;
+                guest.add(guestNew);        
+                System.out.println("Your ID is: "+counter);
+                counter++;   
+            }                         
+            
+            f=0;
+            
+            do
+            {         
                 System.out.println("Please select from one of the choice provided:\n "
-                    + "1.Continue Entering \n "
-                    + "2.Done entering \n"
-                    + "--------------------------------");
-             System.out.print("Enter choice here:");
-                 choice=in.nextLine();
-                     switch (choice) {
-                             case "1": f++; x=0; break;
-                             case "2":f++; x++; break;
-                             default: System.out.println("Wrong Choice! Please try again"); break;
-                         }
-            }while(f==0);     
-        }while(x==0);
+                        + "1.Continue Entering \n "
+                        + "2.Done entering \n"
+                        + "--------------------------------");
+                System.out.print("Enter choice here:");
+                choice=in.nextLine();
+                
+                switch (choice) 
+                {
+                    case "1":
+                        f++; 
+                        x=0;
+                        break;
+                        
+                    case "2":
+                        f++; 
+                        x++; 
+                        break;
+                        
+                    default: 
+                        System.out.println("Wrong Choice! Please try again"); 
+                        break;        
+                }
+                
+            }
+            
+            while(f==0);     
+        }
+        
+        while(x==0);
     }
         
     /* editGuest() - Allows the employee to edit a guests name or password
@@ -968,161 +1196,233 @@ public class HotelMadison
             Scanner in4 = new Scanner(System.in);
 
             int guestID;
-        do{
+            
+            do
+            {
             System.out.println("Please Enter GuestID:");
-                        guestID=in.nextInt(); 
-                        System.out.print("Enter Guest Name: ");
-                        name=in3.nextLine();
-                        guest.get(guestID).setGuestName(name);
+            guestID=in.nextInt(); 
+            System.out.print("Enter Guest Name: ");
+            name=in3.nextLine();
+            guest.get(guestID).setGuestName(name);
 
-                  do{               
-                     System.out.print("Enter old Password: ");
-                     passWordold=in1.nextLine();
-                     System.out.print("Enter new Password: ");
-                     passWordnew=in2.nextLine();
-                     y=guest.get(guestID).setPassword(passWordold, passWordnew);
-                     if (y==0)
-                        {
-                            System.out.println("Wrong Password! please try Again");
-                        }
-                  }while(y==0);    
-                   int f=0; 
-                  do{
-                     System.out.println("Plese select from one of the choice provided:\n "
-                            + "1.Continue Editing \n "
-                            + "2.Done Editing \n"
-                            + "--------------------------------");
-                     System.out.print("Enter choice here:");
-                             choice=in4.nextLine();
-                switch (choice) 
-                {
-                    case "1": f++; x=0; break;
-                    case "2": f++; x=1; break;
-                    default:System.out.println("Wrong number! Please try Again"); break;
-                }
-                    }while(f==0);
+                  do
+                  {
+                      System.out.print("Enter old Password: ");
+                      passWordold=in1.nextLine();
+                      System.out.print("Enter new Password: ");
+                      passWordnew=in2.nextLine();
+                      y=guest.get(guestID).setPassword(passWordold, passWordnew);
+                      
+                      if (y==0)
+                
+                      {
+                          System.out.println("Wrong Password! please try Again");
+                      }
+                      
+                  }
+                  
+                  while(y==0);    
+                  int f=0;
+                  
+                  do
+                  {
+                      System.out.println("Plese select from one of the choice provided:\n "
+                              + "1.Continue Editing \n "
+                              + "2.Done Editing \n"
+                              + "--------------------------------");
+                      System.out.print("Enter choice here:");
+                      choice=in4.nextLine();
+                      
+                      switch (choice) 
+                      {
+                          case "1": 
+                              f++; 
+                              x=0; 
+                              break;
+                        
+                          case "2": 
+                              f++; 
+                              x=1; 
+                              break;
+                        
+                          default:
+                              System.out.println("Wrong number! Please try Again"); 
+                              break;
+                      }
+                  }
+                 
+                  while(f==0);
 
-           }while(x==0);         
+            }
+            
+            while(x==0);         
         }
+        
         public static ArrayList makeRooms(ArrayList roomList)
         {     
-        Scanner keyboardIn = new Scanner(System.in);
-        Scanner keyboardIn1 = new Scanner(System.in);
+            Scanner keyboardIn = new Scanner(System.in);
+            Scanner keyboardIn1 = new Scanner(System.in);
 
-        int x = 0;
-        String bedOption;
-        do {
-            int y = 0;
-            do {
-
-            System.out.println("Please select bed option: " + "\n"
-            + "1. 1 Queen bed" + "\n"
-            + "2. 2 Queen beds" + "\n"
-            + "3. 1 King bed" + "\n");
-            
-            System.out.print("Enter choice here: ");
-            bedOption = keyboardIn1.nextLine();    
-
-           if (bedOption.equals("1"))
-           {  y++;}
-
-           else if(bedOption.equals("2"))
-           {  y++;}
-
-           else if (bedOption.equals("3"))
-           {  y++;}     
-            else
-           { System.out.println("\n"+"Invalid choice. Please enter one of the choices selected. ");}
-
-            }while(y==0);
-
-           String kitchenOption;
-             y = 0;
-           do {
-
-            System.out.println("\n"+"Please select kitchen option: " + "\n"
-            + "1. Microwave" + "\n"
-            + "2. Fridge + Microwave" + "\n");
-
-            System.out.print("Enter choice here: ");
-            kitchenOption = keyboardIn1.nextLine();    
-
-           if (kitchenOption.equals("1"))
-           {  y++;}
-
-           else if(kitchenOption.equals("2"))
-           {  y++;} 
-           else
-           { System.out.println("\n"+"Invalid choice. Please enter one of the choices . ");}
-
-            }while(y==0);
-           
-            y = 0;
-
-            String coffeeOption;
-            do {
-               System.out.println("\n"+"Please select coffee option: " + "\n"
-               + "1. 1-Cup Std. Coffee Machine" + "\n"
-               + "2. Keurig Hot K200 Machine" + "\n");
-
-               System.out.print("Enter choice here: ");
-               coffeeOption = keyboardIn1.nextLine();    
-
-              if (coffeeOption.equals("1"))
-              {  y++;}
-
-              else if(coffeeOption.equals("2"))
-              {  y++;} 
-              else
-              { System.out.println("\n"+"Invalid choice. Please enter one of the choices selected. ");}
-            }while(y==0);
-
-                    y = 0;
-
-
-           String accessibilityOption; 
-           y = 0;
-            do {
-                System.out.println("\n"+"Please select accessibility option: " + "\n"
-                + "1. Standard Room" + "\n"
-                + "2. Enhanced Accessibility Room" + "\n");
+            int x = 0;
+            String bedOption;
+            do 
+            {
+                int y = 0;
                 
-                System.out.print("Enter choice here: ");
-                accessibilityOption = keyboardIn1.nextLine();    
+                do 
+                {
+                    System.out.println("Please select bed option: " + "\n"
+                            + "1. 1 Queen bed" + "\n"
+                            + "2. 2 Queen beds" + "\n"
+                            + "3. 1 King bed" + "\n");
+            
+                    System.out.print("Enter choice here: ");
+                    bedOption = keyboardIn1.nextLine();    
 
-               if (accessibilityOption.equals("1"))
-               {  y++;}
+                    if (bedOption.equals("1"))
+                    {  
+                        y++;
+                    }
+                    
+                    else if(bedOption.equals("2"))
+                    {  
+                        y++;
+                    }
 
-               else if(accessibilityOption.equals("2"))
-               {  y++;} 
-               else
-               { System.out.println("\n"+"Invalid choice. Please enter one of the choices selected. ");}
-            }while(y==0);
+                    else if (bedOption.equals("3"))
+                    {  
+                        y++;
+                    }
+                    
+                    else
+                    { 
+                        System.out.println("\n"+"Invalid choice. Please enter one of the choices selected. ");
+                    }
+            }
+                while(y==0);
+                String kitchenOption;
+                y = 0;
+                
+                do 
+                {
+                    System.out.println("\n"+"Please select kitchen option: " + "\n"
+                            + "1. Microwave" + "\n"
+                            + "2. Fridge + Microwave" + "\n");
+
+                    System.out.print("Enter choice here: ");
+                    kitchenOption = keyboardIn1.nextLine();    
+
+                    if (kitchenOption.equals("1"))
+                    {  
+                        y++;
+                    }
+
+                    else if(kitchenOption.equals("2"))
+                    {  
+                        y++;
+                    }
+                    
+                    else
+                    { 
+                        System.out.println("\n"+"Invalid choice. Please enter one of the choices . ");
+                    }
+
+                }
+                
+                while(y==0);
+                y = 0;
+                String coffeeOption;
+                
+                do 
+                {
+                    System.out.println("\n"+"Please select coffee option: " + "\n"
+                            + "1. 1-Cup Std. Coffee Machine" + "\n"
+                            + "2. Keurig Hot K200 Machine" + "\n");
+
+                    System.out.print("Enter choice here: ");
+                    coffeeOption = keyboardIn1.nextLine();    
+
+                    if (coffeeOption.equals("1"))
+                    {  
+                        y++;
+                    }
+
+                    else if(coffeeOption.equals("2"))
+                    {  
+                        y++;
+                    }
+                    
+                    else
+                    {
+                        System.out.println("\n"+"Invalid choice. Please enter one of the choices selected. ");
+                    }
+                    
+                }
+                
+                while(y==0);
+                y = 0;
+                String accessibilityOption; 
+                y = 0;
+                
+                do 
+                {
+                    System.out.println("\n"+"Please select accessibility option: " + "\n"
+                            + "1. Standard Room" + "\n"
+                            + "2. Enhanced Accessibility Room" + "\n");
+                
+                    System.out.print("Enter choice here: ");
+                    accessibilityOption = keyboardIn1.nextLine();    
+
+                    if (accessibilityOption.equals("1"))
+                    {  
+                        y++;
+                    }
+
+                    else if(accessibilityOption.equals("2"))
+                    {  
+                        y++;
+                    }
+                    
+                    else
+                    {
+                        System.out.println("\n"+"Invalid choice. Please enter one of the choices selected. ");
+                    }
+                    
+                }
+                
+                while(y==0);
                 y = 0;
             
-            double roomPrice = 0;        
-            boolean validEntry;
-            do {
-                try {
-                    System.out.print("\nPlease set a room price per night: ");
-                    Scanner scan = new Scanner(System.in);                   
-                    roomPrice = scan.nextDouble();
-                    
-                    validEntry = true;
-                    }
-                catch (InputMismatchException e) 
+                double roomPrice = 0;        
+                boolean validEntry;
+                
+                do 
+                {
+                    try 
                     {
-                    validEntry = false;
-                    System.out.println("Entered value is not an number!");
+                        System.out.print("\nPlease set a room price per night: ");
+                        Scanner scan = new Scanner(System.in);                   
+                        roomPrice = scan.nextDouble();
+                        validEntry = true;
                     }
-                }while(!validEntry);    
+                    
+                    catch (InputMismatchException e) 
+                    {
+                        validEntry = false;
+                        System.out.println("Entered value is not an number!");
+                    }
+                    
+                }
+                
+                while(!validEntry);    
             
             // This room number will actually be pulled from array 
             // Room will need to be added to the arrayList of rooms
             // Room number will be ArrayList[i]
             int counter = roomList.size() + 1;
 
-            Room newRoom = new Room(Integer.parseInt(bedOption), Integer.parseInt(kitchenOption), Integer.parseInt(coffeeOption), 
+            Room newRoom = new Room(Integer.parseInt(bedOption), Integer.parseInt(kitchenOption), 
+                    Integer.parseInt(coffeeOption), 
                     Integer.parseInt(accessibilityOption), (counter), (roomPrice));
 
             roomList.add(newRoom);
@@ -1134,125 +1434,146 @@ public class HotelMadison
             + "2. No" + "\n");
             x = keyboardIn.nextInt();
 
-                System.out.println();
-
-        } while (x == 1);
-        
+            System.out.println();
+            } 
+            
+            while (x == 1);
+            
         return roomList;    
         }
         
         public static ArrayList editRooms(ArrayList room)
         {
-                 Scanner keyboardIn = new Scanner(System.in);
-        Scanner keyboardIn1 = new Scanner(System.in); 
-        Scanner keyboardIn2 = new Scanner(System.in);
+            Scanner keyboardIn = new Scanner(System.in);
+            Scanner keyboardIn1 = new Scanner(System.in); 
+            Scanner keyboardIn2 = new Scanner(System.in);
        
-        String x = "0";
-        do {
+            String x = "0";
+            
+            do 
+            {
+                System.out.println("Please enter room number to edit: ");
+                String roomNumberToEdit = keyboardIn.nextLine();
         
-        System.out.println("Please enter room number to edit: ");
-        String roomNumberToEdit = keyboardIn.nextLine();
+                Room roomToEdit = (Room) room.get(Integer.parseInt(roomNumberToEdit));
         
-        Room roomToEdit = (Room) room.get(Integer.parseInt(roomNumberToEdit));
+                System.out.println(roomToEdit.roomDescription());
         
-        System.out.println(roomToEdit.roomDescription());
-        
-        System.out.println("Please select room property to edit: " + "\n"
-        + "\n" +"1. Bedding" + "\n"
-        + "2. Kitchen" + "\n"
-        + "3. Coffee machine" + "\n"
-        + "4. Accessibility" + "\n"
-        + "5. Room Price Per Night" + "\n"       
-        + "6. Make room Active/Inactive"); 
+                System.out.println("Please select room property to edit: " + "\n"
+                        + "\n" +"1. Bedding" + "\n"
+                        + "2. Kitchen" + "\n"
+                        + "3. Coffee machine" + "\n"
+                        + "4. Accessibility" + "\n"
+                        + "5. Room Price Per Night" + "\n"       
+                        + "6. Make room Active/Inactive"); 
 
-        String editSelection = keyboardIn.nextLine();
-        int y;
-        do{
-        y = 0;
-            switch (editSelection){
-            case "1":
-                System.out.println("\n"+"Please select new bedding option for this room: " + "\n"
-                + "1. 1 Queen Bed" + "\n"
-                + "2. 2 Queen Beds" + "\n"
-                + "3. 1 King Bed" + "\n");
-                roomToEdit.bedOption = keyboardIn1.nextInt();
-                y++;
-                break;
-            case "2":
-                System.out.println("\n"+"Please select new kitchen option for this room: " + "\n"
-                + "1. Microwave" + "\n"
-                + "2. Fridge + Microwave" + "\n");
-                roomToEdit.kitchenOption = keyboardIn1.nextInt();
-                y++;
-                break;
-            case "3":
-                System.out.println("\n"+"Please select new coffee option for this room: " + "\n"
-                + "1. 1-Cup Std. Coffee Machine" + "\n"
-                + "2. Keurig Hot K200 Machine" + "\n");
-                roomToEdit.kitchenOption = keyboardIn1.nextInt();
-                y++;
-                break;
-            case "4":
-                System.out.println("\n"+"Please select new accessibility option for this room: " + "\n"
-                + "1. Standard Room" + "\n"
-                + "2. Enhanced Accessibility Room" + "\n");
-                roomToEdit.accessibleOption = keyboardIn1.nextInt();
-                y++;
-                break;
-            case "5":
-                //double roomPrice = 0;        
-            boolean validEntry;
-            do {
-                try {
-                    System.out.print("\nPlease set a room price per night: ");
-                    Scanner scan = new Scanner(System.in);                   
-                    //roomPrice = scan.nextDouble();
-                    roomToEdit.roomCostPerNight = scan.nextDouble();
-                    validEntry = true;
-                    }
-                catch (InputMismatchException e) 
-                    {
-                    validEntry = false;
-                    System.out.println("Entered value is not an number!");
-                    }
-                }while(!validEntry); 
-                y++;
-                break;
-            case "6":
-                System.out.println("\n" + "Please select activation option for this room: " + "\n"
-                + "1. Make room active" + "\n"
-                + "2. Make room inactive" + "\n");
-                String activationChange = keyboardIn2.next();
-                switch (activationChange)
+                String editSelection = keyboardIn.nextLine();
+                int y;
+                
+                do
                 {
-                    case "1":
-                        roomToEdit.roomStatus = false;
-                        System.out.println("Room is now Active.");
-                        y++;
-                        break;
-                    case "2":
-                        roomToEdit.roomStatus = true;
-                        System.out.println("Room is now Inactive");
-                        y++;
-                        break;
-                    default:
-                        System.out.println("\n"+"Invalid choice. Please select one of the choices provided " + "\n");
+                    y = 0;
+                    switch (editSelection)
+                    {
+                        case "1":
+                            System.out.println("\n"+"Please select new bedding option for this room: " + "\n"
+                                    + "1. 1 Queen Bed" + "\n"
+                                    + "2. 2 Queen Beds" + "\n"
+                                    + "3. 1 King Bed" + "\n");
+                            roomToEdit.bedOption = keyboardIn1.nextInt();
+                            y++;
+                            break;
+                            
+                        case "2":
+                            System.out.println("\n"+"Please select new kitchen option for this room: " + "\n"
+                                    + "1. Microwave" + "\n"
+                                    + "2. Fridge + Microwave" + "\n");
+                            roomToEdit.kitchenOption = keyboardIn1.nextInt();
+                            y++;
+                            break;
+                            
+                        case "3":
+                            System.out.println("\n"+"Please select new coffee option for this room: " + "\n"
+                                    + "1. 1-Cup Std. Coffee Machine" + "\n"
+                                    + "2. Keurig Hot K200 Machine" + "\n");
+                            roomToEdit.kitchenOption = keyboardIn1.nextInt();
+                            y++;
+                            break;
+                            
+                        case "4":
+                            System.out.println("\n"+"Please select new accessibility option for this room: " + "\n"
+                                    + "1. Standard Room" + "\n"
+                                    + "2. Enhanced Accessibility Room" + "\n");
+                            roomToEdit.accessibleOption = keyboardIn1.nextInt();
+                            y++;
+                            break;
+                            
+                        case "5":       
+                            boolean validEntry;
+                            
+                            do 
+                            {
+                                try 
+                                {
+                                    System.out.print("\nPlease set a room price per night: ");
+                                    Scanner scan = new Scanner(System.in);                   
+                                    roomToEdit.roomCostPerNight = scan.nextDouble();
+                                    validEntry = true;
+                                }
+                                
+                                catch (InputMismatchException e) 
+                                {
+                                    validEntry = false;
+                                    System.out.println("Entered value is not an number!");
+                                }    
+                            }
+                            
+                            while(!validEntry); 
+                            y++;
+                            break;
+                        
+                        case "6":
+                            System.out.println("\n" + "Please select activation option for this room: " + "\n"
+                                    + "1. Make room active" + "\n"
+                                    + "2. Make room inactive" + "\n");
+                            String activationChange = keyboardIn2.next();
+                            
+                            switch (activationChange)
+                            {
+                                case "1":
+                                    roomToEdit.roomStatus = false;
+                                    System.out.println("Room is now Active.");
+                                    y++;
+                                    break;
+                                    
+                                case "2":
+                                    roomToEdit.roomStatus = true;
+                                    System.out.println("Room is now Inactive");
+                                    y++;
+                                    break;
+                                    
+                                default:
+                                    System.out.println("\n"+"Invalid choice. Please select one of the choices provided " + "\n");
+                            }
+                            
+                            break;
+                            
+                        default: 
+                            System.out.println("\n"+"Invalid choice. Please enter one of the choices provided. " + "\n");
+                            y = 1;
+                            break;
+                    }
                 }
-                break;
-            default: 
-                System.out.println("\n"+"Invalid choice. Please enter one of the choices provided. " + "\n");
-                y = 1;
-                break;
                 
-        }
-        }while(y==0);
-                
-          System.out.println("\n" + "Would you like to edit another room? " + "\n"
-          + "1. Yes" + "\n"
-          + "2. No" + "\n");
-          x = keyboardIn.nextLine();
+                while(y==0);
+                System.out.println("\n" + "Would you like to edit another room? " + "\n"
+                        + "1. Yes" + "\n"
+                        + "2. No" + "\n");
+                x = keyboardIn.nextLine();
           
-        } while (x.equals("1"));
-          return room;   
-        }                       
+            } 
+            
+            while (x.equals("1"));
+            return room;   
+        }                      
 }
