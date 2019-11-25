@@ -6,26 +6,28 @@
 */
 package CIS_Group_Project;
 
-public class ValueGuest extends Guest{
+public class ValueGuest extends Guest
+{
     private String savingsNumber;
     private int numberOfBookings;
     private double amountSpentWithHotel;
-    public ValueGuest(String username, String password, String guestName)
+    
+    public ValueGuest(String username, String password, String guestName) // Constructor
     {
         super(username, password, guestName);
     }
     
-    public double getAmountSpentWithHotel()
+    public double getAmountSpentWithHotel() // Getter for amount spent at hotel
     {
         return this.amountSpentWithHotel;
     }
     
-    public int getNumberOfBookings()
+    public int getNumberOfBookings() // Getter for number of previous bookings
     {
         return this.numberOfBookings;
     }
     
-    public String getSavingsNumber()
+    public String getSavingsNumber() // Getter for amount of savings
     {
         return this.savingsNumber;
     }
