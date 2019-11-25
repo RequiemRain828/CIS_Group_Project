@@ -7,8 +7,9 @@ public class Booking {
     public int bookingYear;
     public int checkInDay;
     public int checkOutDay;
+    public int counter;
     
-    private static int nextID = 0;
+    private static int nextID = 1;
     
     public Booking(Guest bookingGuest, Room bookedRoom, int year, int checkIn, 
             int checkOut){
@@ -16,7 +17,8 @@ public class Booking {
         this.bookedRoom = bookedRoom;
         this.bookingYear = year;
         this.checkInDay = checkIn;
-        this.checkOutDay = checkOut; 
+        this.checkOutDay = checkOut;
+        this.counter = nextID++;
     }
     
     public Guest getBookingGuest(){
@@ -36,5 +38,9 @@ public class Booking {
         result += this.bookingGuest.getGuestName() + " booked room " + this.bookedRoom.getRoomNumber() 
                 + " in " + this.bookingYear ;
         return result; 
+    }
+    
+    public int getCounter(){
+        return this.counter;
     }
 }
