@@ -11,9 +11,9 @@ public class Room {
     private int roomNumber;
     private int roomBookQuantity;
     private boolean roomBooked;
-    private double roomCostPerNight;
+    public double roomCostPerNight;
     private static int nextID = 0;
-    public boolean activeStatus;
+    public boolean roomStatus;
     
     public Room (int bed, int kitch, int coffee, int accessibility, int roomNumber, double roomPrice)
     {
@@ -24,6 +24,22 @@ public class Room {
         this.accessibleOption = accessibility;
         this.roomNumber = roomNumber;
         this.roomCostPerNight = roomPrice;
+    }
+    
+    public boolean roomStatus()
+    {
+        boolean result;
+        // Room is active
+        if (this.roomStatus == false)
+        {
+            result = false;
+        }
+        else
+        {
+        // Room is inactive
+            result = true;
+        }
+        return result;
     }
     
     public boolean bookedRoom()
@@ -92,6 +108,21 @@ public class Room {
     
     public String displayRoomStatus()
     {
+        String status  = "";
+        if(this.roomStatus)
+        {
+           status = "Inactive";
+           
+        }
+        else
+        {
+            status = "Active";
+        }
+        return status;
+    }
+    
+    public String displayRoomBooked()
+    {
         String booked = "";
         if(this.roomBooked)
         {
@@ -109,8 +140,8 @@ public class Room {
     {
         String result = "";
         result = ("Number of Times Booked: " + this.getBookedRoomQuantity() + "\n" 
-                + "Room Booked Status: " + this.displayRoomStatus() + "\n"  
-                );
+                + "Room Booked Status: " + this.displayRoomBooked() + "\n"  
+                + "Room active Status: " + this.displayRoomStatus() + "\n");
         return result;
     }
     
