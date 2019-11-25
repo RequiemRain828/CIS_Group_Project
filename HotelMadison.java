@@ -264,7 +264,7 @@ public class HotelMadison
             case "3": newGuest(); break;
             case "4": editGuest(); break;
             case "5": newEmployee(); break;
-            case "6": editEmployee();break;
+            case "6": editEmployee  ();break;
             case "7": room = makeRooms(room); break;
             case "8": editRooms(room); break;
             case "9": System.out.print("Exiting back to Login Page...\n"); loginPage(); break;
@@ -708,6 +708,10 @@ public class HotelMadison
             }
         } while (!correctResponse);
     }
+    
+    //This Method is for creating a new emplyee. it promptes the employee to input a username,
+    // password and there name.
+      // Author Yohannes Woldemariam
      
    public static void newEmployee()
     {       
@@ -760,6 +764,8 @@ public class HotelMadison
         }while(x==0);
         
         }
+    //This Method is if the employee wants to change there names or password 
+      // Author Yohannes Woldemariam
             public static void editEmployee()
             {
                 String choice;
@@ -837,7 +843,8 @@ public class HotelMadison
                     }while(f==0);
                }while(x==0);         
             }
-       
+       //This Method asks Employees to input new guest and by inputting the name, password and username of the guest
+      // Author Yohannes Woldemariam
         public static void newGuest()
         {       
             int x=1;
@@ -911,6 +918,8 @@ public class HotelMadison
             }while(x==0);
         }
         
+     //This Method is if the guest wants to change names or password 
+      // Author Yohannes Woldemariam
         public static void editGuest()
         {
             String choice;
