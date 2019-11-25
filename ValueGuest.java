@@ -1,5 +1,5 @@
 /*
- * Author: Austin Putnam & Ivan Zhang
+ * Author: Austin Putnam
  * Date: November 18, 2019
  * Assignment: Hotel Madison Part 1
  * Purpose: To create a ValueGuest object. 
