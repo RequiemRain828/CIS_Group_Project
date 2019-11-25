@@ -1,3 +1,10 @@
+/*
+ * Author: Marin Walters
+ * Date: November 18, 2019
+ * Assignment: Hotel Madison Part 1
+ * Purpose: To create a booking - The Booking class acts as a “cross-table” object 
+            and creates a link between a Guest object and a Room object. 
+*/
 package CIS_Group_Project;
 
 

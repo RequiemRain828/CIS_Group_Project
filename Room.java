@@ -1,4 +1,9 @@
-
+/*
+ * Author: Austin Putnam, Marin Walters & Ivan Zhang
+ * Date: November 18, 2019
+ * Assignment: Hotel Madison Part 1
+ * Purpose: To create a Room object. 
+*/
 package CIS_Group_Project;
 
 public class Room {
@@ -42,6 +47,9 @@ public class Room {
         return result;
     }
     
+    /*
+    * @author Marin Walters
+    */
     public boolean bookedRoom()
     {
         boolean roomTest;
@@ -50,13 +58,15 @@ public class Room {
         else
         {
             roomTest = true;
-            //this.roomBookQuantity++;
         }
         
         return roomTest;
         
     }
     
+    /*
+    * @author Marin Walters
+    */
     public void bookRoom()
     {
         this.roomBookQuantity++;
@@ -64,6 +74,9 @@ public class Room {
             roomBooked = true;    
     }
     
+    /*
+    * @author Marin Walters
+    */
     public void unbookRoom()
     {
         if (this.roomBooked == true)

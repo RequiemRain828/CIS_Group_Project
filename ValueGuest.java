@@ -1,14 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+ * Author: Austin Putnam & Ivan Zhang
+ * Date: November 18, 2019
+ * Assignment: Hotel Madison Part 1
+ * Purpose: To create a ValueGuest object. 
+*/
 package CIS_Group_Project;
 
-/**
- *
- * @author Ivan
- */
 public class ValueGuest extends Guest{
     private String savingsNumber;
     private int numberOfBookings;
