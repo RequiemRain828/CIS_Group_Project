@@ -43,6 +43,9 @@ public class HotelMadison
         
     }
     
+    //* @author Ivan Zhang
+    // This is the initial Login page that prompts user 
+    // if they wish to login or exit the system 
     public static void loginPage()
     {
         int x = 0;
@@ -81,6 +84,9 @@ public class HotelMadison
         while(x == 0);
     }
     
+    //* @author Ivan Zhang
+    // This calls the login menu that
+    // allows users to enter a username and password
     public static Guest loginMenu()
     {
 
@@ -135,79 +141,8 @@ public class HotelMadison
         while(x == 0);
         return theGuest;
     }
-    
-    // @author Austin Putnam
-    public static Guest checkGuest()
-    {
-        Guest theGuest = null;
-        Scanner keyboardInput = new Scanner (System.in);
-        int x = 0;
-        do
-        {        
-            System.out.print("Please enter your username: ");
-            String usernameTest = keyboardInput.nextLine();
-                    
-            System.out.print("Please enter your password: ");
-            String passwordTest = keyboardInput.nextLine();
-                    
-            for(int i =0; i< guest.size(); i++)
-            {
-                if (guest.get(i).checkCredentials(usernameTest, passwordTest) == true)
-                {
-                    System.out.println("\nWelcome, " + usernameTest + "!");
-                    theGuest = guest.get(i);
-                    x = 1;
-                    break;
-                }
-                       
-                if (i == guest.size() - 1 && 
-                        guest.get(i).checkCredentials(usernameTest, passwordTest) == false)
-                {
-                    System.out.println("Sorry, your username or password is incorrect. Please try again.");
-                }
-            }
-        }
-                
-        while(x==0);
-        
-        return theGuest; 
-                
-    }
-   
-    // @author Austin Putnam
-    public static void checkEmployee()
-    {
-        Scanner keyboardInput = new Scanner (System.in);
-        int x = 0;
-        do
-        {        
-            System.out.print("Please enter your username: ");
-            String usernameTest = keyboardInput.nextLine();
-                    
-            System.out.print("Please enter your password: ");
-            String passwordTest = keyboardInput.nextLine();
-                    
-            for(int i =0; i< employee.size(); i++)
-            {
-                if (employee.get(i).checkCredentials(usernameTest, passwordTest) == true)
-                {
-                    System.out.println("\nWelcome, " + usernameTest + "!");
-                    employeeMenu();
-                    x = 1;
-                    break;
-                }
-                       
-                if (i == employee.size() - 1 && 
-                        employee.get(i).checkCredentials(usernameTest, passwordTest) == false)
-                {
-                    System.out.println("Sorry, your username or password is incorrect. Please try again.");
-                }
-            }
-        }
-                
-        while(x == 0);         
-    }
 
+    //* @author Ivan Zhang
     public static void employeeMenu() // Menu that employees see
     {   
         Scanner input = new Scanner(System.in);
@@ -261,6 +196,8 @@ public class HotelMadison
         while (!menuChoice.equals("9"));
     }
     
+    //* @author Ivan Zhang
+    // Switch statement that handles input of the Employee Menu
     public static void handleEmployeeChoice(String menuChoice)
     {
         switch(menuChoice) 
@@ -278,13 +215,15 @@ public class HotelMadison
         }
     }
     
+    //* @author Ivan Zhang
+    // Employee function that allows them to view a report of 
+    // all Rooms or a room of their choice
     public static void bookingReport()
-    {
-        
+    {        
         int x=1;
         int y=1;
         int f=0;   
-        String choice ;
+        String choice;
         String valued;
 
         Scanner in = new Scanner(System.in);
@@ -412,6 +351,9 @@ public class HotelMadison
         while(x==0);   
     }
     
+    //* @author Ivan Zhang
+    // Allows an Employee to checkout a guest based on
+    // the guest and their room number given numeric options on a list
     public static void checkoutGuest()
     {
             int f=0;
@@ -1464,7 +1406,7 @@ public class HotelMadison
             {
                 System.out.println("Please enter room number to edit: ");
                 String roomNumberToEdit = keyboardIn.nextLine();
-        
+               
                 Room roomToEdit = (Room) room.get(Integer.parseInt(roomNumberToEdit));
         
                 System.out.println(roomToEdit.roomDescription());
