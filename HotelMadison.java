@@ -232,7 +232,7 @@ public class HotelMadison
         System.out.println("5. Create an Employee Account");
         System.out.println("6. Edit an Employee Account");
         System.out.println("7. Create Guest Rooms");
-        System.out.println("8. Edit or make a Room Inactive");
+        System.out.println("8. Edit a room or make it Inactive");
         System.out.println("9. Exit back to Login Screen");
         
         System.out.print("Please enter an option: ");
