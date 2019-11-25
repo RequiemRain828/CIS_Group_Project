@@ -34,7 +34,7 @@ public class Room {
         else
         {
             roomTest = true;
-            this.roomBookQuantity++;
+            //this.roomBookQuantity++;
         }
         
         return roomTest;
@@ -43,8 +43,9 @@ public class Room {
     
     public void bookRoom()
     {
+        this.roomBookQuantity++;
         if (this.roomBooked == false)
-            roomBooked = true;
+            roomBooked = true;    
     }
     
     public void unbookRoom()
@@ -107,8 +108,9 @@ public class Room {
     public String roomAnalytics()
     {
         String result = "";
-        result = (" Number of Times Booked: " + this.getBookedRoomQuantity() 
-                + ", Room Booked Status: " + this.displayRoomStatus());
+        result = ("Number of Times Booked: " + this.getBookedRoomQuantity() + "\n" 
+                + "Room Booked Status: " + this.displayRoomStatus() + "\n"  
+                );
         return result;
     }
     
@@ -164,11 +166,11 @@ public class Room {
                 break;
         }
         
-        desc = ("Room Number: " + this.getRoomNumber() + " comes fully furnished with " 
-                + bed + ", a " + kitchen + ", a " + coffee 
-                + ", and is classifed as a " + access
-                + ", Room booked status: " + this.displayRoomStatus()
-                + ", Room Price Per Night is " + this.roomCostPerNight);
+        desc = ("Room Number: " + this.getRoomNumber() + " comes fully furnished with \n" 
+                + bed + ", a " + kitchen + ", a " + coffee + "\n"
+                + "and is classifed as a " + access + "\n"
+                + "Room Price Per Night is $" + this.roomCostPerNight + "\n"
+                );
         return desc;
     }
     
