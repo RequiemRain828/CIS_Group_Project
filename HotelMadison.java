@@ -1,3 +1,10 @@
+/*
+ * Author: Yohannes Mitiku, Austin Putnam, Marin Walters, & Ivan Zhang
+ * Date: November 18, 2019
+ * Assignment: Hotel Madison Part 1
+ * Purpose: To create the HotelMadison application. 
+*/
+
 package CIS_Group_Project;
 
 import java.util.Scanner;
@@ -129,6 +136,7 @@ public class HotelMadison
         return theGuest;
     }
     
+    // @author Austin Putnam
     public static Guest checkGuest()
     {
         Guest theGuest = null;
@@ -166,6 +174,7 @@ public class HotelMadison
                 
     }
    
+    // @author Austin Putnam
     public static void checkEmployee()
     {
         Scanner keyboardInput = new Scanner (System.in);
@@ -199,7 +208,7 @@ public class HotelMadison
         while(x == 0);         
     }
 
-    public static void employeeMenu()
+    public static void employeeMenu() // Menu that employees see
     {   
         Scanner input = new Scanner(System.in);
         String menuChoice = "";
@@ -716,7 +725,8 @@ public class HotelMadison
         {
             System.out.print("\nEnter the value next to the room you'd like to book: ");
             roomChoice = input.next();
-
+            
+            
             Room chosenRoom = preferredRooms.get(Integer.parseInt(roomChoice) - 1);
             
             boolean check = false;
