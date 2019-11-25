@@ -6,7 +6,8 @@
 */
 package CIS_Group_Project;
 
-public class Room {
+public class Room 
+{
     
     private int roomID;
     public int bedOption;
@@ -20,7 +21,8 @@ public class Room {
     private static int nextID = 0;
     public boolean roomStatus;
     
-    public Room (int bed, int kitch, int coffee, int accessibility, int roomNumber, double roomPrice)
+    // Constructor
+    public Room (int bed, int kitch, int coffee, int accessibility, int roomNumber, double roomPrice) 
     {
         this.roomID = nextID++;
         this.bedOption = bed;
@@ -31,7 +33,7 @@ public class Room {
         this.roomCostPerNight = roomPrice;
     }
     
-    public boolean roomStatus()
+    public boolean roomStatus() //Checks to see if room is currently active
     {
         boolean result;
         // Room is active
@@ -83,43 +85,47 @@ public class Room {
             roomBooked = false;
     }
     
-    public void freeThisRoom()
+    public void freeThisRoom() // Unbooks a room
     {
         this.roomBooked = false;
     }
     
-    public int getBookedRoomQuantity()
+    public int getBookedRoomQuantity() // Getter for the number of booked rooms
     {
         return this.roomBookQuantity;
     }
     
-    public int getRoomID()
+    public int getRoomID() // Getter for the room ID
     {
         return this.roomID;
     }
     
-    public int getRoomNumber()
+    public int getRoomNumber() // Getter for the room number
     {
         return this.roomNumber;
     }
     
-    public int getBedOption() {
+    public int getBedOption() // Getter for the bed option
+    {
         return this.bedOption;
     }
     
-    public int getKitchenOption() {
+    public int getKitchenOption() // Getter for the kitchen option
+    {
         return this.kitchenOption;
     }
     
-    public int getCoffeeOption() {
+    public int getCoffeeOption() // Getter for the coffee option
+    {
         return this.coffeeOption;
     }
     
-    public int getAccessibleOption() {
+    public int getAccessibleOption() // Getter for the room's accessibility
+    {
         return this.accessibleOption;
     }
     
-    public String displayRoomStatus()
+    public String displayRoomStatus()  // Displays the room's current activity status
     {
         String status  = "";
         if(this.roomStatus)
@@ -134,7 +140,7 @@ public class Room {
         return status;
     }
     
-    public String displayRoomBooked()
+    public String displayRoomBooked() // Display's the room's booking status
     {
         String booked = "";
         if(this.roomBooked)
@@ -149,7 +155,7 @@ public class Room {
         return booked;
     }
     
-    public String roomAnalytics()
+    public String roomAnalytics() // Returns information about a selected room
     {
         String result = "";
         result = ("Number of Times Booked: " + this.getBookedRoomQuantity() + "\n" 
@@ -158,7 +164,7 @@ public class Room {
         return result;
     }
     
-    public String roomDescription()
+    public String roomDescription() //Describes the amenities and features of a room
     {
         String desc = "";
         String bed = "";
@@ -218,14 +224,10 @@ public class Room {
         return desc;
     }
     
-    public boolean setRoomNumber(int roomNumber)
+    public boolean setRoomNumber(int roomNumber) // Setter for room number
     {
         return false;
     }
     
-    
-    
-    
-    
-    
+        
 }
