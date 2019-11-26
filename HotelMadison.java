@@ -1210,9 +1210,9 @@ public class HotelMadison
             while(x==0);         
         }
         
-     //* @author Dylan Jones
-    // This is where an employee would create a room and add it to the list of rooms in the array
-    // makeRooms()
+        //* @author Dylan Jones
+        // This is where an employee would create a room and add it to the list of rooms in the array
+        // makeRooms()
         public static ArrayList makeRooms(ArrayList roomList)
         {     
             Scanner keyboardIn = new Scanner(System.in);
@@ -1394,12 +1394,12 @@ public class HotelMadison
         return roomList;    
         }
         
-       //* @author Dylan Jones
-    // This is where an employee would pull a room from the array
-    // and edit any of its characteristics
-    // editRooms()
+        //* @author Dylan Jones
+        // This is where an employee would pull a room from the array
+        // and edit any of its characteristics
+        // editRooms()
     
-        public static ArrayList editRooms(ArrayList room)
+        public static ArrayList editRooms(ArrayList aRoom)
         {
             Scanner keyboardIn = new Scanner(System.in);
             Scanner keyboardIn1 = new Scanner(System.in); 
@@ -1411,126 +1411,130 @@ public class HotelMadison
             {
                 System.out.println("Please enter room number to edit: ");
                 String roomNumberToEdit = keyboardIn.nextLine();
-               
-                Room roomToEdit = (Room) room.get(Integer.parseInt(roomNumberToEdit));
-        
-                System.out.println(roomToEdit.roomDescription());
-        
-                System.out.println("Please select room property to edit: " + "\n"
-                        + "\n" +"1. Bedding" + "\n"
-                        + "2. Kitchen" + "\n"
-                        + "3. Coffee machine" + "\n"
-                        + "4. Accessibility" + "\n"
-                        + "5. Room Price Per Night" + "\n"       
-                        + "6. Make room Active/Inactive"); 
-
-                String editSelection = keyboardIn.nextLine();
-                int y;
                 
-                do
-                {
-                    y = 0;
-                    switch (editSelection)
+                for (int i = 0; i < room.size(); i++)
                     {
-                        case "1":
-                            System.out.println("\n"+"Please select new bedding option for this room: " + "\n"
-                                    + "1. 1 Queen Bed" + "\n"
-                                    + "2. 2 Queen Beds" + "\n"
-                                    + "3. 1 King Bed" + "\n");
-                            roomToEdit.bedOption = keyboardIn1.nextInt();
-                            y++;
-                            break;
-                            
-                        case "2":
-                            System.out.println("\n"+"Please select new kitchen option for this room: " + "\n"
-                                    + "1. Microwave" + "\n"
-                                    + "2. Fridge + Microwave" + "\n");
-                            roomToEdit.kitchenOption = keyboardIn1.nextInt();
-                            y++;
-                            break;
-                            
-                        case "3":
-                            System.out.println("\n"+"Please select new coffee option for this room: " + "\n"
-                                    + "1. 1-Cup Std. Coffee Machine" + "\n"
-                                    + "2. Keurig Hot K200 Machine" + "\n");
-                            roomToEdit.kitchenOption = keyboardIn1.nextInt();
-                            y++;
-                            break;
-                            
-                        case "4":
-                            System.out.println("\n"+"Please select new accessibility option for this room: " + "\n"
-                                    + "1. Standard Room" + "\n"
-                                    + "2. Enhanced Accessibility Room" + "\n");
-                            roomToEdit.accessibleOption = keyboardIn1.nextInt();
-                            y++;
-                            break;
-                            
-                        case "5":       
-                            boolean validEntry;
-                            
-                            do 
-                            {
-                                try 
-                                {
-                                    System.out.print("\nPlease set a room price per night: ");
-                                    Scanner scan = new Scanner(System.in);                   
-                                    roomToEdit.roomCostPerNight = scan.nextDouble();
-                                    validEntry = true;
-                                }
-                                
-                                catch (InputMismatchException e) 
-                                {
-                                    validEntry = false;
-                                    System.out.println("Entered value is not an number!");
-                                }    
-                            }
-                            
-                            while(!validEntry); 
-                            y++;
-                            break;
+                    if (room.get(i).getRoomNumber() == (Integer.parseInt(roomNumberToEdit)))
+                        {
+                        Room roomToEdit = (Room) room.get(i);
                         
-                        case "6":
-                            System.out.println("\n" + "Please select activation option for this room: " + "\n"
-                                    + "1. Make room active" + "\n"
-                                    + "2. Make room inactive" + "\n");
-                            String activationChange = keyboardIn2.next();
-                            
-                            switch (activationChange)
-                            {
-                                case "1":
-                                    roomToEdit.roomStatus = false;
-                                    System.out.println("Room is now Active.");
-                                    y++;
-                                    break;
-                                    
-                                case "2":
-                                    roomToEdit.roomStatus = true;
-                                    System.out.println("Room is now Inactive");
-                                    y++;
-                                    break;
-                                    
-                                default:
-                                    System.out.println("\n"+"Invalid choice. Please select one of the choices provided " + "\n");
-                            }
-                            
-                            break;
-                            
-                        default: 
-                            System.out.println("\n"+"Invalid choice. Please enter one of the choices provided. " + "\n");
-                            y = 1;
-                            break;
+                        //Room roomToEdit = (Room) room.get(Integer.parseInt(roomNumberToEdit));
+        
+                    System.out.println(roomToEdit.roomDescription());
+
+                    System.out.println("Please select room property to edit: " + "\n"
+                            + "\n" +"1. Bedding" + "\n"
+                            + "2. Kitchen" + "\n"
+                            + "3. Coffee machine" + "\n"
+                            + "4. Accessibility" + "\n"
+                            + "5. Room Price Per Night" + "\n"       
+                            + "6. Make room Active/Inactive"); 
+
+                    String editSelection = keyboardIn.nextLine();
+                    int y;
+
+                    do
+                    {
+                        y = 0;
+                        switch (editSelection)
+                        {
+                            case "1":
+                                System.out.println("\n"+"Please select new bedding option for this room: " + "\n"
+                                        + "1. 1 Queen Bed" + "\n"
+                                        + "2. 2 Queen Beds" + "\n"
+                                        + "3. 1 King Bed" + "\n");
+                                roomToEdit.bedOption = keyboardIn1.nextInt();
+                                y++;
+                                break;
+
+                            case "2":
+                                System.out.println("\n"+"Please select new kitchen option for this room: " + "\n"
+                                        + "1. Microwave" + "\n"
+                                        + "2. Fridge + Microwave" + "\n");
+                                roomToEdit.kitchenOption = keyboardIn1.nextInt();
+                                y++;
+                                break;
+
+                            case "3":
+                                System.out.println("\n"+"Please select new coffee option for this room: " + "\n"
+                                        + "1. 1-Cup Std. Coffee Machine" + "\n"
+                                        + "2. Keurig Hot K200 Machine" + "\n");
+                                roomToEdit.kitchenOption = keyboardIn1.nextInt();
+                                y++;
+                                break;
+
+                            case "4":
+                                System.out.println("\n"+"Please select new accessibility option for this room: " + "\n"
+                                        + "1. Standard Room" + "\n"
+                                        + "2. Enhanced Accessibility Room" + "\n");
+                                roomToEdit.accessibleOption = keyboardIn1.nextInt();
+                                y++;
+                                break;
+
+                            case "5":       
+                                boolean validEntry;
+
+                                do 
+                                {
+                                    try 
+                                    {
+                                        System.out.print("\nPlease set a room price per night: ");
+                                        Scanner scan = new Scanner(System.in);                   
+                                        roomToEdit.roomCostPerNight = scan.nextDouble();
+                                        validEntry = true;
+                                    }
+
+                                    catch (InputMismatchException e) 
+                                    {
+                                        validEntry = false;
+                                        System.out.println("Entered value is not an number!");
+                                    }    
+                                }
+
+                                while(!validEntry); 
+                                y++;
+                                break;
+
+                            case "6":
+                                System.out.println("\n" + "Please select activation option for this room: " + "\n"
+                                        + "1. Make room active" + "\n"
+                                        + "2. Make room inactive" + "\n");
+                                String activationChange = keyboardIn2.next();
+
+                                switch (activationChange)
+                                {
+                                    case "1":
+                                        roomToEdit.roomStatus = false;
+                                        System.out.println("Room is now Active.");
+                                        y++;
+                                        break;
+
+                                    case "2":
+                                        roomToEdit.roomStatus = true;
+                                        System.out.println("Room is now Inactive");
+                                        y++;
+                                        break;
+
+                                    default:
+                                        System.out.println("\n"+"Invalid choice. Please select one of the choices provided " + "\n");
+                                }
+
+                                break;
+
+                            default: 
+                                System.out.println("\n"+"Invalid choice. Please enter one of the choices provided. " + "\n");
+                                y = 1;
+                                break;
+                        }
+                    } while(y == 0);
+                    System.out.println("\n" + "Would you like to edit another room? " + "\n"
+                            + "1. Yes" + "\n"
+                            + "2. No" + "\n");
+                    x = keyboardIn.nextLine();
+                        }
                     }
-                }
-                
-                while(y==0);
-                System.out.println("\n" + "Would you like to edit another room? " + "\n"
-                        + "1. Yes" + "\n"
-                        + "2. No" + "\n");
-                x = keyboardIn.nextLine();
-          
-            } 
+            }while (x.equals("1"));
             
-            while (x.equals("1"));
-            return room;   
+            return aRoom;   
         }                      
 }
