@@ -1,5 +1,5 @@
 /*
- * Author: Yohannes Mitiku, Austin Putnam, Marin Walters, & Ivan Zhang
+ * Author: Yohannes Mitiku, Austin Putnam, Marin Walters, Dylan Jones & Ivan Zhang
  * Date: November 18, 2019
  * Assignment: Hotel Madison Part 1
  * Purpose: To create the HotelMadison application. 
@@ -1210,6 +1210,9 @@ public class HotelMadison
             while(x==0);         
         }
         
+     //* @author Dylan Jones
+    // This is where an employee would create a room and add it to the list of rooms in the array
+    // makeRooms()
         public static ArrayList makeRooms(ArrayList roomList)
         {     
             Scanner keyboardIn = new Scanner(System.in);
@@ -1368,9 +1371,6 @@ public class HotelMadison
                 
                 while(!validEntry);    
             
-            // This room number will actually be pulled from array 
-            // Room will need to be added to the arrayList of rooms
-            // Room number will be ArrayList[i]
             int counter = roomList.size() + 1;
 
             Room newRoom = new Room(Integer.parseInt(bedOption), Integer.parseInt(kitchenOption), 
@@ -1394,6 +1394,11 @@ public class HotelMadison
         return roomList;    
         }
         
+       //* @author Dylan Jones
+    // This is where an employee would pull a room from the array
+    // and edit any of its characteristics
+    // editRooms()
+    
         public static ArrayList editRooms(ArrayList room)
         {
             Scanner keyboardIn = new Scanner(System.in);
