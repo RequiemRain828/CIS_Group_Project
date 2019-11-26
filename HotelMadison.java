@@ -651,10 +651,12 @@ public class HotelMadison
                 {
                     System.out.println("\n(The following rooms are available that meet your preferences)");
                 }
-                
-                preferredRooms.add(room.get(i));
-                count++;
-                System.out.println(count + ". Room # " + room.get(i).getRoomNumber());
+                if (!(room.get(i).roomStatus()))
+                {
+                    preferredRooms.add(room.get(i));
+                    count++;
+                    System.out.println(count + ". Room # " + room.get(i).getRoomNumber());
+                }
             }
         }
         
@@ -728,7 +730,7 @@ public class HotelMadison
             count = 0;
             for (int i = 0; i < room.size(); i++) 
             {
-                if(!room.get(i).bookedRoom())
+                if(!(room.get(i).roomStatus()))
                 {
                     availableRooms.add(room.get(i));
                     count++;
