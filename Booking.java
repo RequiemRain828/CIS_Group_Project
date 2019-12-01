@@ -14,7 +14,7 @@ public class Booking {
     public int bookingYear;
     public int checkInDay;
     public int checkOutDay;
-    public int counter;
+    
     
     private static int nextID = 1;
     
@@ -25,7 +25,7 @@ public class Booking {
         this.bookingYear = year;
         this.checkInDay = checkIn;
         this.checkOutDay = checkOut;
-        this.counter = nextID++;
+        
     }
     
     public Guest getBookingGuest(){
@@ -47,7 +47,5 @@ public class Booking {
         return result; 
     }
     
-    public int getCounter(){
-        return this.counter;
-    }
+    
 }
