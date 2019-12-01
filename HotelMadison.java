@@ -17,6 +17,7 @@ public class HotelMadison
     public static ArrayList<Guest> guest = new ArrayList();
     public static ArrayList<Room> room = new ArrayList<Room>();
     public static ArrayList<Booking> booking = new ArrayList();
+    public static ArrayList<Booking> tempBooking = new ArrayList();
         
     public static void main(String[] args) 
     {
@@ -266,9 +267,15 @@ public class HotelMadison
                     
                     if (room.get(i).bookedRoom())
                     {
-                        System.out.print("This room is currently booked by: " 
-                                + booking.get(i).getBookingGuest().getGuestName()
-                                + "\n");
+                        for (int j = 0; j < booking.size(); j++) 
+                        {
+                        if (booking.get(j).bookedRoom == room.get(i))
+                            {
+                            System.out.print("This room is currently booked by: " 
+                            + booking.get(j).getBookingGuest().getGuestName()
+                            + "\n");
+                            }
+                        }           
                     }
                 }
             }
@@ -294,9 +301,16 @@ public class HotelMadison
                                 
                                 if (room.get(i).bookedRoom())
                                 {
-                                    System.out.print("This room is currently booked by: " 
-                                            + booking.get(i).getBookingGuest().getGuestName()
+                                    for (int j = 0; j < booking.size(); j++) 
+                                    {
+                                        if (booking.get(j).bookedRoom == room.get(i))
+                                        {
+                                        System.out.print("This room is currently booked by: " 
+                                            + booking.get(j).getBookingGuest().getGuestName()
                                             + "\n");
+                                        }
+                                    }
+
                                 }
                             }
                         }
@@ -356,19 +370,27 @@ public class HotelMadison
     // the guest and their room number given numeric options on a list
     public static void checkoutGuest()
     {
+            
             int f=0;
             do
             {   
-                int counter = 1;
-                System.out.println("List of Guests who have booked rooms: " + 
-                        "\n--------------------------------");
+                int count = 1;
+                
+                //System.out.println("List of Guests who have booked rooms: " + 
+                        //"\n--------------------------------");
                 for (int j = 0; j < booking.size(); j ++)
                 {
                     if (booking.get(j).getBookedRoom().bookedRoom())
-                    {   
-                    System.out.println(counter + ". " + booking.get(j).getBookingGuest().getGuestName() 
-                            + " has booked Room number#: " + booking.get(j).getBookedRoom().getRoomNumber());
-                    counter ++;
+                    {
+                    if(count == 0)
+                    {
+                        System.out.println("List of Guests who have booked rooms: " + 
+                        "\n--------------------------------");
+                    }
+                    tempBooking.add(booking.get(j));
+                    System.out.println(count + ". " + tempBooking.get(j).getBookingGuest().getGuestName() 
+                            + " has booked Room number#: " + tempBooking.get(j).getBookedRoom().getRoomNumber());
+                    count ++;
                     }
                 }
                 
@@ -379,15 +401,17 @@ public class HotelMadison
                 String guest = keyboardInput.nextLine();
                 System.out.println("--------------------------------");
                 
-                for (int i = 0; i < booking.size(); i ++)
+                for (int i = 0; i < tempBooking.size(); i ++)
                 {
-                    if (booking.get(i).getCounter() == Integer.parseInt(guest))
+                    Booking chosenBooking = (tempBooking.get((Integer.parseInt(guest) - 1)));
                     {
                         
-                    booking.get(i).getBookedRoom().freeThisRoom();    
-                    System.out.println("Guest " + booking.get(i).getBookingGuest().getGuestName() 
+                    chosenBooking.endBooking();
+                    
+                    System.out.println("Guest " + chosenBooking.getBookingGuest().getGuestName() 
                             + " in Room number#: " 
-                            + booking.get(i).getBookedRoom().getRoomNumber()+ " Is Checked out");
+                            + chosenBooking.getBookedRoom().getRoomNumber()+ " Is Checked out");
+                    tempBooking.remove((Integer.parseInt(guest) - 1));
                     }    
                 }
                 
@@ -1422,7 +1446,7 @@ public class HotelMadison
                         
                         //Room roomToEdit = (Room) room.get(Integer.parseInt(roomNumberToEdit));
         
-                    System.out.println(roomToEdit.roomDescription());
+                    System.out.println(roomToEdit.roomDescription() + "Room active Status: " + roomToEdit.displayRoomStatus() + "\n");
 
                     System.out.println("Please select room property to edit: " + "\n"
                             + "\n" +"1. Bedding" + "\n"
