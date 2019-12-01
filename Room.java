@@ -31,6 +31,7 @@ public class Room
         this.accessibleOption = accessibility;
         this.roomNumber = roomNumber;
         this.roomCostPerNight = roomPrice;
+        
     }
     
     public boolean roomStatus() //Checks to see if room is currently active
@@ -88,6 +89,7 @@ public class Room
     public void freeThisRoom() // Unbooks a room
     {
         this.roomBooked = false;
+
     }
     
     public int getBookedRoomQuantity() // Getter for the number of booked rooms
@@ -228,6 +230,5 @@ public class Room
     {
         return false;
     }
-    
         
 }
