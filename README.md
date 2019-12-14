@@ -6,6 +6,7 @@ Part 1 of this prototype will be a console-based application (text only) with de
 instance objects, and arrays, with menus and inputs. Below you will find example output of a
 sample run of the prototype.
 Client Needs:
+
 After discussing the project with the client, the following new system (“To-Be” System) needs
 have been elicited:
 • The system should ask for a username/password for a person to log in. For now, this first
